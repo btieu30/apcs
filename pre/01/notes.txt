@@ -1,0 +1,3 @@
+Brianna Tieu
+
+Had no trouble finishing the setup and successfully printing out "Hello World!" 
