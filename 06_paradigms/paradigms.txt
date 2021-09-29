@@ -1,0 +1,17 @@
+Brianna Tieu
+APCS
+HW #6 -- 06_paradigms (programs to print "Hello, world!" in Scheme, NetLogo and Python)
+2021-09-28
+
+Scheme: 
+(display "Hello, world!")
+
+Netlogo: 
+print "Hello, world!"
+
+Python: 
+print("Hello, world!")
+
+Similarities: all use quotation marks to denote "Hello, world!" as a string, and allows it to print. 
+
+Differences: Scheme uses the function name display, rather than print such as NetLogo and Python.
