@@ -16,13 +16,12 @@ Unresolved Questions:
 public class Greet {
 	public static void main(String[] args){
 		System.out.println(greet("Foo"));
-		System,out.println(greet("Moo"));
+		System.out.println(greet("Moo"));
 		System.out.println(greet("Voo"));
 	}
 
 	public static String greet(String x){
-		s1 = "Why, hello there, ";
-		s2 = ". How do you do?";
-		final = s1 + x + s2;
-		return final;
+		String s = "Why, hello there, " + x + ". How do you do?";
+		return s;
 	}
+}
