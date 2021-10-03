@@ -1,0 +1,15 @@
+Brianna Tieu
+APCS
+Summer Pre-Work 08 - Coding Bat Problems
+
+Value Functions: 
+Didn't understand the rounding in the sumofSines, but able to get it to work eventually. No trouble writing the other methods.
+
+Conditionals: 
+No trouble writing both of the conditional methods!
+
+Loops: 
+Again, no trouble writing the stringTimes method.
+
+Arrays:
+Only struggled with the scoresIncreasing method and figuring out how to traverse along the array and keep track of its indexes. 

@@ -1,0 +1,7 @@
+Brianna Tieu
+APCS
+Summer Pre-Work 04 - Conditionals
+
+No assignment submission for this section, but there is a general understanding of conditionals and booleans.
+However, there is some confusion with recursion and how it can be invoked in loops.
+ 

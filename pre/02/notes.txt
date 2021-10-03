@@ -1,4 +1,8 @@
+Brianna Tieu
+APCS
+Summer Pre-Work 02 - Data Types
+
 1) Not much trouble with the first exercise rearranging the dates. A bit of difficulty with formatting and small errors such as forgetting commas or spaces, etc.
 2) Trouble converting the 12 hour clock to a 24 hour clock, but able to figure out the problem overall.
-
 3) Problems figuring out the proper algorithm to approach the problem and use the remaining values afrer hours to then convert to minutes and seconds.
+

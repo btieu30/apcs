@@ -1,0 +1,13 @@
+Brianna Tieu 
+APCS
+Summer Pre-Work 06 - Loops
+
+Number 3: 
+Generally understood the concepts of the problem, just had issues getting started and intiating variables to implement an iterative method.
+
+Number 4: 
+Was able to write this function without much trouble!
+
+Number 5:
+Didn't really understand what the question was asking, had to consult help for this one :(
+

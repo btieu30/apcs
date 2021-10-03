@@ -1,0 +1,12 @@
+Brianna Tieu
+APCS
+Summer Pre-Work 05 - Value Methods
+
+Number 2:
+No trouble writing and succesfully running the function to recieve the correct output.
+
+Number 3:
+Again, no trouble forming the function itself and getting it to return the correct outputs when determining whether or not something is a triangle.
+
+Number 8: 
+Had some difficulty with the idea of recursion within the ackermann function but was able to eventually code the method after looking at the diagram presented on the website.

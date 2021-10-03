@@ -1,0 +1,15 @@
+Brianna Tieu
+APCS
+Summer Pre-Work 07 - Arrays
+
+Number 1: 
+No trouble successfully writing and running the powArray method, but did struggle trying to use the enhanced for loop for the histogram method. 
+
+Number 4: 
+Had trouble writing the method and keeping track of the array's index to find the largest number but was somehow able to get the method to return the correct answer.
+
+Number 5: 
+Again was able to get the function to work, but didn't really get the Sieve algorithm, had to consult help to get this to work. 
+
+General ideas: 
+Didn't really get the idea of the enhanced for loop and how that works.

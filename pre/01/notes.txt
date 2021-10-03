@@ -1,3 +1,5 @@
 Brianna Tieu
+APCS
+Summer Pre-Work 01 - Hello World
 
 Had no trouble finishing the setup and successfully printing out "Hello World!"
