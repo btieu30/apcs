@@ -3,7 +3,12 @@
 // HW13 -- Where do BigSibs Come From?
 // 2021-10-06
 
-// DISCOVERIES and QCC both in Greet.java
+/* DISCOVERIES
+0: When using a constructor, it must be named after the class of the file, or else it won't work.
+
+QCC
+0: When naming the constructor something that wasn't the class name, there was an error message. Why must the constructor be named after the class?
+*/
 
 public class BigSib {
 	String helloMsg;

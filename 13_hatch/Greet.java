@@ -5,12 +5,10 @@
 
 /* DISCOVERIES
 0: You can use constructors instead of methods to execute code, making it look cleaner overall by avoiding even more tedious repeating lines of code.
-1: When using a constructor, it must be named after the class of the file, or else it won't work.
-2: By adding this constructor to our code, we are basically just combining the two lines from last night's Greet.java that declared the new instance variable and ran the method setHelloMsg.
+1: By adding this constructor to our code, we are basically just combining the two lines from last night's Greet.java that declared the new instance variable and ran the method setHelloMsg.
 
 QCC
-0: When naming the constructor something that wasn't the class name, there was an error message. Why must the constructor be named after the class?
-1: Can the constructor take more than one input to make this code even more efficient?
+0: Can the constructor take more than one input to make this code even more efficient?
 */
 
 public class Greet {
