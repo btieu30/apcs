@@ -12,6 +12,10 @@ QCC
 public class BigSib {
 	String helloMsg;
 
+    public BigSib() {
+	helloMsg = "Word up";
+    }
+
     public BigSib (String greeting) {
 	helloMsg = greeting;
     }

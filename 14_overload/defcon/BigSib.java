@@ -12,12 +12,12 @@ QCC
 public class BigSib {
 	String helloMsg;
 
-	public BigSib() {
-		helloMsg = "Word up";
-	}
-// Deafult constructors don't take any inputs, so this prevents the custimization of our greet.
+    public BigSib() {
+	helloMsg = "Word up";
+    }
+// Default constructors don't take any inputs, so this prevents the custimization of our greet.
 
-	public String greet (String x) {
+    public String greet (String x) {
 		return (helloMsg + " " + x);
      }//end main
    }// end Greet
