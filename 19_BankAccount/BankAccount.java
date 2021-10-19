@@ -36,7 +36,7 @@ public class BankAccount {
       return oldPin;
     } else {
       pin = 9999;
-      System.err.println("New pin is not within range (1000, 9998).");
+      System.err.println("New pin is not within range [1000, 9998].");
       return oldPin;
     }
   }
@@ -70,7 +70,7 @@ public class BankAccount {
       System.err.println(false + " - account doesn't have enough money.");
     } else {
       balance = balance - withdrawAmount;
-      System.out.println (true);
+      System.out.println (true + " - withdrawal success");
   }
 }
 
@@ -86,7 +86,7 @@ public class BankAccount {
     return retStr;
   }
 
-private boolean authenciate( int accNum, String pass ) {
+private boolean authenticate( int accNum, String pass ) {
   if ((accNum == acctNum) && (pass == passwd)) {
     return (true);
   } else {
@@ -99,7 +99,7 @@ private boolean authenciate( int accNum, String pass ) {
     BankAccount ba = new BankAccount();
       System.out.println(ba.toString());
   //prints errors
-  short badPin = 0100;
+    short badPin = 0100;
     ba.setName("badPepe");
     ba.setPasswd("PepeIsBad");
     ba.setPin(badPin);
@@ -108,7 +108,7 @@ private boolean authenciate( int accNum, String pass ) {
     ba.setBalance(1000.00);
     ba.deposit (200.00);
     ba.withdraw(10000.99);
-    System.out.println(ba.authenciate(123456789, "PepeIsGod"));
+    System.out.println("Authentication " + ba.authenticate(123456789, "PepeIsGod"));
 //prints full info
   short pin = 1234;
     ba.setName("Pepe");
@@ -119,7 +119,7 @@ private boolean authenciate( int accNum, String pass ) {
     ba.setBalance(1000.00);
     ba.deposit(200.00);
     ba.withdraw(7.99);
-    System.out.println(ba.authenciate(123456789, "PepeIsGod"));
+    System.out.println("Authentication " + ba.authenticate(123456789, "PepeIsGod"));
 }//end main()
 
 }//end class BankAccount
