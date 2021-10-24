@@ -4,7 +4,7 @@
  *  APCS
  *  HW23 - What Does Equality Look Like?
  *  2021-10-25
- *  Tiem Spent: 1.5 hours
+ *  Time Spent: 1.2 hours
  ***/
 
 /*
