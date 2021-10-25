@@ -38,6 +38,7 @@ public class Coin {
    *  postcond:
    ***/
   public Coin() {
+    reset("heads", 0.5);
     bias = Math.random();
   }
 
