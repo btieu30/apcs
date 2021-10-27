@@ -1,4 +1,4 @@
-//Team Pog - Brianna, Pepe, Nicole, Duck
+//Team Hydration - Brianna, Pepe, Nicole, Duck
 //APCS
 //HW25 -- Do I repeat myself?
 //2021-10-26
