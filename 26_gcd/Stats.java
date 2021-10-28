@@ -11,6 +11,9 @@ DISCO
 QCC
 0: When I initially returned the value of i instead of creating variable gcd for the "brute force" method, it prompted the output to be the smallest common divisor. Does the return store the initial value of i and is creating a new variable necessary here?
 1: Is there a built-in java function that also finds the lowest common divisor?
+
+ALGO:
+- To find the GCD, we compare the two imputs and continously replace the larger number with the positive difference of the two inputs. We repeat this until we get the same number, this being the GCD.
 */
 public class Stats {
 
