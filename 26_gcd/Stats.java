@@ -6,7 +6,7 @@
 
 /*
 DISCO
-0: When we consistently subtract two integers and replace the larger value with the difference, we get the largest common divisor.
+0: In all these loops, the main condition for the loops or if statements to exit would be for the two inputs to equal one another.
 
 QCC
 0: When I initially returned the value of i instead of creating variable gcd for the "brute force" method, it prompted the output to be the smallest common divisor. Does the return store the initial value of i and is creating a new variable necessary here?
