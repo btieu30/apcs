@@ -1,6 +1,7 @@
 public class makeAbba {
-// given two strings (a, b), prints them in one final string formatted as abba.
-  public static String makeAbba(String a, String b) {
+  // given two strings (a, b), prints them in one final string formatted as abba.
+
+public static String makeAbba(String a, String b) {
     return a + b + b + a;
   }
 

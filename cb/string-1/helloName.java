@@ -1,5 +1,6 @@
 public class helloName {
-//returns greeting in form of "Hello cheese!", given string name "cheese"
+  //returns greeting in form of "Hello cheese!", given string name "cheese"
+
   public static String helloName(String name) {
     return "Hello " + name + "!";
   }
