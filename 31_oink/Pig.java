@@ -119,7 +119,7 @@ public class Pig
     System.out.println(isAVowel("a"));
     System.out.println(isAVowel("b"));
     System.out.println(countVowels("meatball"));
-    System.out.println(countVowels("cheese"));
+    System.out.println(countVowels("zzz"));
     System.out.println(hasAVowel("cat"));
     System.out.println(hasAVowel("zzz"));
     System.out.println(allVowels("meatball"));
