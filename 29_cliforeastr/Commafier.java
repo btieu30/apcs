@@ -39,6 +39,21 @@ public class Commafier {
 }
 
   public static void main(String[] args) {
+/*
+    System.out.println("Recursive Method Calls:");
+    System.out.println(commafyR(1));
+    System.out.println(commafyR(10));
+    System.out.println(commafyR(101));
+    System.out.println(commafyR(1000));
+    System.out.println(commafyR(12345));
+
+    System.out.println("\nIterative Method Calls:");
+    System.out.println(commafyF(1));
+    System.out.println(commafyF(10));
+    System.out.println(commafyF(101));
+    System.out.println(commafyF(1000));
+    System.out.println(commafyF(12345));
+*/
     for (String s : args) {
       System.out.println(commafyR(Integer.parseInt(s)));
       System.out.println(commafyF(Integer.parseInt(s)));
