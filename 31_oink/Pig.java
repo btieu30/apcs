@@ -24,7 +24,6 @@
  /*
  DISCO:
 0: We can call existing methods in a class file to help us write new ones.
-1: We use for loops when the number of iterations through the loop are unknown. Specifically in this class Pig, the length of the input string from the user varies. so we would want to use for loops instead of while loops.
  QCC:
 0: Would there be a more efficient way to use the methods within one another to write an even shorter code for allVowels or countVowels?
  */
