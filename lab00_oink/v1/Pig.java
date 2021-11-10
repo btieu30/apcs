@@ -3,10 +3,27 @@ import java.util.Scanner;
 // TNPG: UmmmmmV - Fang Chen, Brianna Tieu, Brian Kang
 /*
 TO-DO LIST:
-0: Implement each of additional methods.
-1: Implement resulting methods into final Pig Latin converter.
-2: Account for extra rules (y vowel?, multiple consonants at beginning of input, capitalization, punctuation)
-3: Incorporate scanner
+0: Code isPunc, isUpperCase, hasPunc and beginsWithUpper -- y
+1: Debug DemoScanner -- y
+2: Incorporate scanner -- y
+3: Account for y as a vowel when appropriate -- n
+4: Handle multiple consonants -- n
+5: Account for capitalization -- n
+6: Add punctuation -- n
+*/
+
+/*
+DISCO:
+
+QCC:
+
+HOW WE UTILIZED SCANNER DEMO (v1): 
+We utilized the scanner demo by implementing the code seen in the while loop, which utilizes .next(). In our code, we used .next() to find the next line in file words.in to be translated into Pig Latin.
+
+WHAT CAUSES THE RUNTIME ERROR IN THE SCANNER DEMO:
+The error is caused by the while loop running .next(). As a result of the last line of words,in not having the next line present, it prompts an error message, as there is no next line for the while loop to print out.
+
+NEW IN v1: We successfully incorporated the scanner into our code to account for all new lines in file words.in.
 */
 
 public class Pig {

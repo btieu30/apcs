@@ -20,6 +20,8 @@ DISCO:
 
 QCC:
 
+NEW IN V2:
+We have coded the file to now handle multiple consonants at the beginning of the word. We also have accounted for words that don't have any vowels present.
 */
 public class Pig {
 
