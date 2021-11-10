@@ -16,7 +16,14 @@ public class Pig {
     private static final String PUNCS = ".,:;!?";
 
   public static void main( String[] args ) {
-    Scanner sc = new Scanner(System.in);
+    //instantiate a Scanner with STDIN as its bytestream
+    Scanner sc = new Scanner( System.in );
+
+    while( sc.hasNext() ) {
+      String next = sc.next();
+      System.out.println( next );
+      System.out.println( engToPig( next ));
+    }
 
     for( String word : args ) {
       System.out.println( "allVowels \t" + allVowels(word) );
@@ -24,18 +31,6 @@ public class Pig {
       System.out.println( "countVowels \t" + countVowels(word) );
       System.out.println( "engToPig \t" + engToPig(word) );
       System.out.println( "---------------------" );
-
-      System.out.println(hasAVowel(word));
-
-      System.out.println("\nTESTING NEW 4 FUNCTIONS");
-      System.out.println(isPunc("."));
-      System.out.println(isPunc("b"));
-      System.out.println(isUpperCase("a"));
-      System.out.println(isUpperCase("A"));
-      System.out.println(hasPunc("cat."));
-      System.out.println(hasPunc("cat"));
-      System.out.println(beginsWithUpper("Apple"));
-      System.out.println(beginsWithUpper("apple"));
     }
   }
 
