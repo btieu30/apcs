@@ -14,14 +14,15 @@ TO-DO LIST:
 
 /*
 DISCO:
+0: We can use .next() to identify what the next line / word of text will be in a file.
 
 QCC:
-
-HOW WE UTILIZED SCANNER DEMO (v1): 
+0: How else can we utilize scanners to recieve user input?
+HOW WE UTILIZED SCANNER DEMO (v1):
 We utilized the scanner demo by implementing the code seen in the while loop, which utilizes .next(). In our code, we used .next() to find the next line in file words.in to be translated into Pig Latin.
 
 WHAT CAUSES THE RUNTIME ERROR IN THE SCANNER DEMO:
-The error is caused by the while loop running .next(). As a result of the last line of words,in not having the next line present, it prompts an error message, as there is no next line for the while loop to print out.
+The error is caused by the while loop running .next(). As a result of the last line of words not having the next line present, it prompts an error message, as there is no next line for the while loop to print out.
 
 NEW IN v1: We successfully incorporated the scanner into our code to account for all new lines in file words.in.
 */

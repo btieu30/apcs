@@ -3,28 +3,23 @@ import java.util.Scanner;
 // TNPG: UmmmmmV - Fang Chen, Brianna Tieu, Brian Kang
 /*
 TO-DO LIST:
-// TNPG: UmmmmmV - Fang Chen, Brianna Tieu, Brian Kang
-/*
-TO-DO LIST:
 0: Code isPunc, isUpperCase, hasPunc and beginsWithUpper -- y
 1: Debug DemoScanner -- y
 2: Incorporate scanner -- y
 3: Account for y as a vowel when appropriate -- n
-4: Handle multiple consonants -- y
+4: Handle multiple consonants -- n
 5: Account for capitalization -- n
 6: Add punctuation -- n
 */
 
 /*
 DISCO:
-0: We can utilize a while loop to account for the consonants that must be consistently moved to the end of the word.
+0: We can use toUpperCase() and toLowerCase() to turn a string into all capital or lowercase letters.
 
 QCC:
-0: How may we consider numbers in our Pig Latin translator?
-
-NEW IN V2:
-We have coded the file to now handle multiple consonants at the beginning of the word. We also have accounted for words that don't have any vowels present.
+0: Are there any more efficient ways to splice the string into different words seperated by spaces?
 */
+
 public class Pig {
 
     private static final String VOWELS = "aeiouy";
@@ -32,13 +27,12 @@ public class Pig {
     private static final String PUNCS = ".,:;!?";
 
   public static void main( String[] args ) {
-    //instantiate a Scanner with STDIN as its bytestream
-    Scanner sc = new Scanner( System.in );
+    Scanner sc = new Scanner ( System.in );
     System.out.println( "Pig Latin Translator: ");
 
-    while( sc.hasNext() ) {
-      String next = sc.next();
-      System.out.println( next + " --> " + engToPig(next));
+    while ( sc.hasNextLine() ) {
+      String next = sc.nextLine();
+      System.out.println( next + " --> " + engToPig(next) );
     }
 
     for( String word : args ) {
@@ -50,7 +44,7 @@ public class Pig {
     }
   }
 
-/**
+  /**
     String engToPig(String) -- converts an English word to Pig Latin
     pre:  w.length() > 0
     post: engToPig("apple")  --> "appleway"
@@ -60,46 +54,71 @@ public class Pig {
   public static String engToPig( String w ) {
 
     String ans = "";
+    String punc = "";
+    String originalw = w;
+
+//accounts for cases w/o vowels
     if ( countVowels(w) == 0) {
       ans = w + "ay";
     }
 
+//punctuation
+    if ( hasPunc(w) ) {
+      punc = w.substring(w.length() - 1);
+      w = w.substring(0, w.length() - 1);
+    }
+
     if ( beginsWithVowel(w) ) {
+  //y is the first letter
+      if ((w.length() > 1) && (w.substring(0, 1).equals("y") || w.substring(0, 1).equals("Y"))) {
+        w = w.substring(1) + "y";
+        if (beginsWithVowel(w)) {
+          ans = w + "ay";
+        }
+      } else {
+
+      }
       ans = w + "way";
     } else {
 //consonants
-          while (beginsWithVowel(w) == false && countVowels(w) > 0) {
-            w = w.substring(1) + w.substring(0, 1);
-          }
-          if ( beginsWithVowel(w) ) {
-            ans = w + "ay";
-          }
-    }
-/*
-//spaces / phrases
-  if ( w.indexOf(" ") >= 0 ) {
-  }
-*/
-//considering capitalization
-    if ( beginsWithUpper(w) ) {
-      w = w.toLowerCase();
-      ans = (ans.substring(0, 1).toUpperCase()) + ans.substring(1);
-    }
-
-//considering y as a vowel
-/*
-    if (hasPunc(w) == true) {
-      for (int i = 0; i < w.length(); i++) {
-        if ((isPunc(w.substring(i, i+1))) == true) {
-          String newString = w.substring (0, i);
-          ans = newString + ans + w.substring(i, i+1);
+      while ( beginsWithVowel(w) == false && countVowels(w) > 0 ) {
+        if (!(firstVowel(w).equals("y") || firstVowel(w).equals("Y"))) {
+          w = w.substring(1) + w.substring(0, 1);
+        } else {
+          if (!(isAVowel(w.substring((w.indexOf(firstVowel(w)) + 1), w.indexOf(firstVowel(w)) + 2)))) {
+                w = w.substring(1) + w.substring(0, 1);
+        } else {
+          w = w.substring(w.indexOf(firstVowel(w)) + 1) + w.substring(0, w.indexOf(firstVowel(w)) + 1);
         }
       }
     }
-*/
-    return ans;
+
+      if ( beginsWithVowel(w) ) {
+        ans = w + "ay";
+      }
   }
 
+// capitalization
+      if ( beginsWithUpper(originalw) ) {
+        ans = (ans.substring(0, 1).toUpperCase() + ans.substring(1).toLowerCase());
+      }
+
+//spaces / phrases
+      if ( w.indexOf(" ") >= 0 ) {
+        space(w);
+      }
+      return ans + punc;
+    }
+  public static String space( String w ) {
+    String pigLatinPhrase = "";
+    for (int i = 0; i < w.length(); i++) {
+      if (w.substring(i, i+1).equals(" ")) {
+        pigLatinPhrase += engToPig(w.substring(0, i));
+        w = w.substring(i);
+      }
+    }
+    return pigLatinPhrase;
+  }
   /**
     boolean hasA(String,String) -- checks for a letter in a String
     pre:  w != null, letter.length() == 1
