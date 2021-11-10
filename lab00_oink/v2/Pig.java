@@ -1,6 +1,10 @@
 import java.util.Scanner;
 
 // TNPG: UmmmmmV - Fang Chen, Brianna Tieu, Brian Kang
+// APCS
+// Lab00 - Etterbay Odingcay Oughthray Ollaborationcay
+// 2021-11-10
+// Time Spent: 2 hrs
 /*
 TO-DO LIST:
 // TNPG: UmmmmmV - Fang Chen, Brianna Tieu, Brian Kang
