@@ -1,0 +1,22 @@
+Brianna Tieu
+APCS
+HW36 -- All Quacked Up
+2021--11--18
+Time Spent: 0.5 hrs
+
+0: There are three types of errors you can have: compile-time errors, run-time errors, and logic errors.
+1: When you recieve a compile-time error, the program tells you where exactly the program had trouble compiling. This can lead us in the direction of a possible syntax error.
+2: With syntax errors, we should check for proper parentheses and brackets, capitalization, quotation marks, expression types and the type of method we are dealing with. For example, we must make sure we don't refer to a non-static variable or method from a static context and that when we invoke a value method, we are using the output to perform a task.
+3: We can use bisection to debug, which employs the idea of deleting half of the code and slowly reimplementing each portion of code until we find and resolve the error.
+4: The suggestions by the compiler to fix an error are not always the right steps to take.
+5: Causes of run-time errors include infinite loops or recursive methods and exceptions. 
+6: When the issue is an infinite loop, we can utilize print statements at the beginning and end of the method declaration to find out where the program gets stuck. We can also print out the value of the variables after each iteration or occurrence of the loop to help us understand the conditions under which the loop continuously runs.
+7: Infinite recursion is denoted by a StackOverflow Error, which we can attack by looking for a base case and adding print statements to display parameter values.
+8: ArithmeticExceptions allow us to understand that something in the program went wrong while evaluating an arithmetic expression.
+9: It is good practice to scale down the problem or our written code to test methods in seperate terms or independently.
+10: Fractions can only be prompted by the use of doubles.
+11: When checking for equality among doubles, it would be better to use (Math.abs(d - 1.23) < .000001) instead of the double equal operator.
+12: == operator checks for objects being identical, while equals checks for equivalence and identity for user-defined types.
+13: To break down a large expression, we can use variables and declare them equal to one another. 
+14: When we are VERY stuck, we should step away from the code or call for help from another person. By explaining the errors to another person, it helps us organize our thoughts better and can help us even find our own errors.
+15: Duckies are the real KtS. 
