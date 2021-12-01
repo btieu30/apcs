@@ -6,7 +6,7 @@
 
 /*
 DISCO:
-0:
+0: When printing the rational number, we don't need to include the toString() method in the print statement..
 
 QCC:
 0: What kind of protection should be used for ints p and q?
@@ -24,10 +24,15 @@ public class Rational {
   public Rational(int x, int y) {
     p = x;
     q = y;
+    if ( y == 0 ) {
+      p = 0;
+      q = 1;
+    System.out.println("Invalid denominator input -> Rational set to 0/1");
+    }
   }
 
-  public float floatValue() {
-    float floatNum = ( (float) p / q);
+  public double floatValue() {
+    double floatNum = ( (double) p / q);
     return floatNum;
   }
 
@@ -49,11 +54,17 @@ public class Rational {
   public static void main(String[] args) {
     Rational test = new Rational(2, 3);
     Rational pog = new Rational(3, 4);
+
     System.out.println(test.floatValue());
     System.out.println(test);
     test.multiply(pog);
     System.out.println(test);
     test.divide(pog);
     System.out.println(test);
+
+    System.out.println("---------------------------");
+
+    Rational zeroDenom = new Rational (4, 0);
+    System.out.println(zeroDenom);
   }
 }
