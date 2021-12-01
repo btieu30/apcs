@@ -27,7 +27,7 @@ public class Rational {
     if ( y == 0 ) {
       p = 0;
       q = 1;
-    System.out.println("Invalid denominator input -> Rational set to 0/1");
+      System.out.println("Invalid denominator input -> Rational set to 0/1");
     }
   }
 
