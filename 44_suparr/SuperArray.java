@@ -66,6 +66,7 @@ public class SuperArray
   {
     int temp = _data[index];
     _data[index] = newVal;
+    if (index >= _size) { _size++; }
     return temp;
   }
   //adds an item after the last item
