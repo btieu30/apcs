@@ -29,6 +29,10 @@ public class BinSearch
 
     int m = (lo + hi) / 2; //init mid pos var
 
+    if ( lo > hi ) {
+	return tPos;
+    }
+
     if ( a[m] == target ) {
         tPos = m;
     }
@@ -137,7 +141,7 @@ public class BinSearch
     System.out.println( binSearch(iArr2,8) );
     System.out.println( binSearch(iArr2,13) );
     System.out.println( binSearch(iArr2,42) );
-    /*----------------------------------------------------
+
     //search for 43 in array
     System.out.println( binSearch(iArr2,43) );
 
@@ -148,8 +152,9 @@ public class BinSearch
 
     //search for 43 in array
     System.out.println( binSearch(iArr3,43) );
-    ====================================================*/
 
+    /*----------------------------------------------------
+    ====================================================*/
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
