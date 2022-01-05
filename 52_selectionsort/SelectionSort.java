@@ -67,20 +67,21 @@ public class SelectionSort
     //note: this version places greatest value at "rightmost" end
 
     //maxPos will point to position of SELECTION (greatest value)
-    int maxPos;
+    int maxPos = 0;
 
-    for(  ) {
+    for( int pass = data.size() - 1; pass > 0; pass-- ) {
       System.out.println( "\nbegin pass " + (data.size()-pass) );//diag
 
-
-      for(  ) {
-        System.out.println( "maxPos: " + maxPos );//diag
+      for( int i = 0; i < pass; i++ ) {
         System.out.println( data );//diag
-
-
+        if ( data.get(maxPos).compareTo(data.get(i)) < 0) {
+          maxPos = i;
+        }
+        System.out.println( "maxPos: " + maxPos );//diag
+        Comparable x = data.get(maxPos);
+        data.set( maxPos, data.get(pass) );
+        data.set( pass, x );
       }
-
-
       System.out.println( "after swap: " +  data );//diag
     }
   }//end selectionSort
@@ -107,7 +108,6 @@ public class SelectionSort
 
   public static void main( String [] args )
   {
-    /*===============for VOID methods=============
 
     ArrayList glen = new ArrayList<Integer>();
     glen.add(7);
@@ -116,13 +116,14 @@ public class SelectionSort
     glen.add(12);
     glen.add(3);
     System.out.println( "ArrayList glen before sorting:\n" + glen );
-    //selectionSortV(glen);
+    selectionSortV(glen);
     System.out.println( "ArrayList glen after sorting:\n" + glen );
 
     ArrayList coco = populate( 10, 1, 1000 );
     System.out.println( "ArrayList coco before sorting:\n" + coco );
-    //selectionSortV(coco);
+    selectionSortV(coco);
     System.out.println( "ArrayList coco after sorting:\n" + coco );
+    /*===============for VOID methods=============
       ============================================*/
 
     /*==========for AL-returning methods==========
