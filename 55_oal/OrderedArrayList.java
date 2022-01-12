@@ -1,6 +1,7 @@
+
 // Mykolyk -- Brianna Tieu and Fang Chen
 // APCS pd06
-// H@55 -- Never Fear, Big Oh Is Here!
+// HW55 -- Never Fear, Big Oh Is Here!
 // 2021-01-11
 
 /**********************************************
@@ -14,6 +15,17 @@
  * https://www2.cs.duke.edu/csed/ap/subset/doc/ap/java/util/ArrayList.html
  **********************************************/
 
+/**********************************************
+ * DISCO
+ * 0: Big Oh is quite useful to consider when optimizing your code, making 
+ * sure it runs under all reasonable conditions and to compare efficiencies. 
+ * 1: All O(1) methods in OrderedArrayList are data-insensitive, but certainly
+ * not the other way around.
+ * 
+ * QCC
+ * 0: Should we strive to write data-sensitive (efficiency for low n) or 
+ * data-insensitive (more consistency) code?
+ **********************************************/
 
 import java.util.ArrayList;
 
