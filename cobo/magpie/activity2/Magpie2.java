@@ -31,14 +31,13 @@ public class Magpie2
         public String getResponse(String statement)
         {
                 String response = "";
-                statement.trim();
-                if (statement.indexOf("no") >= 0)
-                {
-                        response = "Why so negative?";
-                }
-                else if (statement.length()== 0)
+                if ((statement.trim()).compareTo("") == 0)
                 {
                         response = "Say something please.";
+                } 
+                else if (statement.indexOf("no") >= 0)
+                {
+                        response = "Why so negative?";
                 }
                 else if (statement.indexOf("mother") >= 0
                                 || statement.indexOf("father") >= 0
