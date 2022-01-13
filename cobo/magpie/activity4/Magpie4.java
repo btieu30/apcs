@@ -48,30 +48,30 @@ public class Magpie4
                         response = "Tell me more about your family.";
                 }
                 else if (findKeyword(statement, "dog") >= 0
-        			                  || findKeyword(statement, "cat") >= 0)
-    		        {
-      			             response = "Tell me more about your pets.";
-    		        }
-    		        else if (findKeyword(statement, "Mykolyk") >= 0)
-    		        {
-      			             response = "He sounds like he has a nice Motorola.";
-    		        }
-    		        else if (findKeyword(statement, "cheese") >= 0)
-    		        {
-      			             response = "I love cheese.";
-    		        }
-    		        else if (findKeyword(statement, "physics") >= 0)
-    		        {
-      			             response = "Let's not discuss these odd topics.";
-    		        }
-    		        else if (findKeyword(statement, "boring") >= 0)
-    		        {
-      			             response = "Let's not discuss these odd topics.";
-    		        }
-    		        else if (findKeyword(statement, "boring") >= 0)
-    		        {
-      			             response = "Chatbots have feelings too. </3";
-    		        }
+        			|| findKeyword(statement, "cat") >= 0)
+    		{
+      	                response = "Tell me more about your pets.";
+    	        }
+    	        else if (findKeyword(statement, "Mykolyk") >= 0)
+    	        {
+    			response = "He sounds like he has a nice Motorola.";
+    		}
+   	        else if (findKeyword(statement, "cheese") >= 0)
+    		{
+      	                response = "I love cheese.";
+    	        }
+                else if (findKeyword(statement, "physics") >= 0)
+    	        {
+      			response = "Let's not discuss these odd topics.";
+    	        }
+    		else if (findKeyword(statement, "boring") >= 0)
+    		{
+      	                response = "Let's not discuss these odd topics.";
+    		}
+  		else if (findKeyword(statement, "boring") >= 0)
+    		{
+      	                response = "Chatbots have feelings too. </3";
+                }
                 // Responses which require transformations
                 else if (findKeyword(statement, "I want to", 0) >= 0)
                 {
