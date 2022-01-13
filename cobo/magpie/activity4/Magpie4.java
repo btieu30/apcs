@@ -183,10 +183,10 @@ public class Magpie4
                                   .length() - 1);
           }
 
-          int psnOfYou = findKeyword (statement, "I", 0);
-          int psnOfMe = findKeyword (statement, "you", psnOfYou + 2);
+          int psnOfI = findKeyword (statement, "I", 0);
+          int psnOfYou = findKeyword (statement, "you", psnOfI);
 
-          String restOfStatement = statement.substring(psnOfYou + 2, psnOfMe).trim();
+          String restOfStatement = statement.substring(psnOfYou + 1, psnOfMe).trim();
           return "Why do you " + restOfStatement + " me?";
         }
 
@@ -300,14 +300,14 @@ public class Magpie4
                         response = "You don't say.";
                 }
                 else if (whichResponse == 4)
-            		{
-              			response = "What else can you share with me?";
-            		}
-            		else if (whichResponse == 5)
-            		{
-              			response = "I see you humans have a lot going on.";
-            		}
-                
+                {
+       			response = "What else can you share with me?";
+           	}
+         	else if (whichResponse == 5)
+            	{
+              		response = "I see you humans have a lot going on.";
+            	}
+             
                 return response;
         }
 
