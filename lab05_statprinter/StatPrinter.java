@@ -1,7 +1,7 @@
-// Clyde "Thluffy" Sinclair
-// APCS pd0
+// Team Fresh - Brianna, Raven, William
+// APCS pd06
 // L05 -- pulling it together
-// 2022-02-03r
+// 2022-02-03
 // time spent:  hrs
 
 
@@ -66,7 +66,14 @@ public class StatPrinter
   //  _frequency would be [0,0,3,2,0,1]
   public StatPrinter( ArrayList <Integer> data )
   {
-    /* YOUR IMPLEMENTATION HERE */
+    _frequency = new ArrayList <Integer>();
+
+    for (int i = 0; i < max(data) + 1; i++) {
+      _frequency.add(0);
+    }
+    for (int x = 0; x < data.size(); x++) {
+      _frequency.set(data.get(x), _frequency.get(data.get(x)) + 1);
+    }
   }
 
 
@@ -97,24 +104,44 @@ public class StatPrinter
   //    isLocalMode(5) -> true
   public boolean isLocalMode( int i )
   {
-    /* YOUR IMPLEMENTATION HERE */
+    if ( (i > 0) && (i < _frequency.size() - 1) &&
+       (_frequency.get( i - 1 ) < _frequency.get( i )) &&
+       (_frequency.get( i + 1 ) < _frequency.get( i )) ) {
+         return true;
+       } else {
+         return false;
+       }
   }
 
 
-  //*************** QUESTION 04 **************************
-  //postcond: returns list of modes in _frequency
+  // //*************** QUESTION 04 **************************
+  // //postcond: returns list of modes in _frequency
   public ArrayList<Integer> getLocalModes()
   {
-    /* YOUR IMPLEMENTATION HERE */
+    ArrayList <Integer> storage = new ArrayList <Integer> ();
+    for (int i = 0; i < _frequency.size(); i++) {
+      if (isLocalMode(i)) {
+        storage.add(i);
+      }
+    }
+    return storage;
 
   }
-
-
-  //*************** QUESTION 05 **************************
-  //precond:  longestBar > 0
+  //
+  //
+  // //*************** QUESTION 05 **************************
+  // //precond:  longestBar > 0
   public void printHistogram( int longestBar )
   {
-    /* YOUR IMPLEMENTATION HERE */
+    String s = "";
+    int max = max(_frequency);
+    for (int i = 0; i < _frequency.size(); i++) {
+      s += (i + " : ");
+      for (int x = 0; x < longestBar / max * _frequency.get(i); x++) {
+        s += "*";
+      }
+    s += "\n";
+    }
+    System.out.println(s);
   }
-
 }//end class StatPrinter
