@@ -2,7 +2,7 @@
 // APCS pd06
 // L05 -- pulling it together
 // 2022-02-03
-// time spent:  hrs
+// time spent: 0.5 hrs
 
 
 /**
@@ -80,6 +80,11 @@ public class StatPrinter
   //*************** QUESTION 01 **************************
   //precond:  data.size() > 0
   //postcond: returns largest integer in data
+  /*
+  Run time efficiency: O(n) or linear; as the length/size of the ArrayList
+  data grows, the time it takes for the function to fully run will be longer,
+  as there will be more integers that need to be compared to the currentMax.
+  */
   public Integer max( ArrayList <Integer> data )
   {
     int currentMax = 0;
@@ -103,6 +108,11 @@ public class StatPrinter
   //    isLocalMode(1) -> true
   //    isLocalMode(5) -> true
   public boolean isLocalMode( int i )
+  /*
+  Run time efficiency: O(1) or constant; The function is given an input, or int
+  i, which is simply compared to its neighbors. This wouldn't be affected by
+  _frequency's size.
+  */
   {
     if ( (i > 0) && (i < _frequency.size() - 1) &&
        (_frequency.get( i - 1 ) < _frequency.get( i )) &&
@@ -116,6 +126,11 @@ public class StatPrinter
 
   // //*************** QUESTION 04 **************************
   // //postcond: returns list of modes in _frequency
+  /*
+  Run time frequency: O(n) or linear; as the list grows, the function will
+  take a longer time to run because it needs to check if all the integers are
+  local modes.
+  */
   public ArrayList<Integer> getLocalModes()
   {
     ArrayList <Integer> storage = new ArrayList <Integer> ();
@@ -131,6 +146,9 @@ public class StatPrinter
   //
   // //*************** QUESTION 05 **************************
   // //precond:  longestBar > 0
+  /*
+  Run time frequency:
+  */
   public void printHistogram( int longestBar )
   {
     String s = "";

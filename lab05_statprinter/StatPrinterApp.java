@@ -1,8 +1,8 @@
-// Clyde "Thluffy" Sinclair
-// APCS pd0
+// Team Fresh - Brianna, Raven, William
+// APCS pd06
 // L05 -- pulling it together
-// 2022-02-03r
-// time spent:  hrs
+// 2022-02-03
+// time spent: 0.5 hrs
 
 /***
  * class StatPrinterApp

@@ -1,25 +1,26 @@
-Team Phantom Tollbooth (Clyde Sinclair, Fierce Dragon)
-APCS pd0
+Team Fresh - Brianna, Raven, William
+APCS pd06
 L05 -- pulling it together
-2022-02-03r
-time spent:  hrs
+2022-02-03
+time spent: 0.5 hrs
 
 
 DISCO
 ------------------------------------------------
-* 
+* A local mode is derived from a frequency list and is categorized by a value
+  being larger than both of its neighbors.
+* A local mode can never be at the end of a list.
 ================================================
 
 
 QCC
 ------------------------------------------------
-* 
+* How would we represent the longestBar if it is not divisible by the max and
+  vice-versa? Should we prioritize the ratio of the bars or the user input?
 ================================================
 
 
 MISC
 ------------------------------------------------
-* 
+* Mr.Mykolyk's tips for awesome should always be considered!
 ================================================
-
-
