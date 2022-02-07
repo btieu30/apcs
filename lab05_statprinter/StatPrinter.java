@@ -1,8 +1,8 @@
-// Team Fresh - Brianna, Raven, William
+// Team Fresh (Brianna Tieu, Raven (Ruiwen) Tang, William Vongphanith)
 // APCS pd06
-// L05 -- pulling it together
+// L05 -- pulling it together / writing StatPrinter class
 // 2022-02-03
-// time spent: 0.5 hrs
+// time spent: 1.0 hrs
 
 
 /**
@@ -64,6 +64,11 @@ public class StatPrinter
   //          _frequency.get(i) returns frequency of i in data
   //eg, for data [2,3,2,5,2,3]
   //  _frequency would be [0,0,3,2,0,1]
+  /*
+  Run time efficiency: O(n) or linear; the call to max() takes linear time, and
+  each element in data will be handled once in order for the desired info to be
+  recorded in _frequency, which also takes linear time.
+  */
   public StatPrinter( ArrayList <Integer> data )
   {
     _frequency = new ArrayList <Integer>();
@@ -81,8 +86,10 @@ public class StatPrinter
   //precond:  data.size() > 0
   //postcond: returns largest integer in data
   /*
-  Run time efficiency: O(n) or linear; as the length/size of the ArrayList
-  data grows, the time it takes for the function to fully run will be longer,
+  Run time efficiency: O(n) or linear; we only iterate through data once, and
+  as the length/size of the ArrayList
+  data grows, the time it takes for the function to fully run will be longer
+  and proportional to the size of the ArrayList,
   as there will be more integers that need to be compared to the currentMax.
   */
   public Integer max( ArrayList <Integer> data )
@@ -107,12 +114,12 @@ public class StatPrinter
   //    isLocalMode(0) -> false
   //    isLocalMode(1) -> true
   //    isLocalMode(5) -> true
-  public boolean isLocalMode( int i )
   /*
   Run time efficiency: O(1) or constant; The function is given an input, or int
-  i, which is simply compared to its neighbors. This wouldn't be affected by
-  _frequency's size.
+  i, whose corresponding element is simply compared to its neighbors.
+  this process isn't be affected by _frequency's size.
   */
+  public boolean isLocalMode( int i )
   {
     if ( (i > 0) && (i < _frequency.size() - 1) &&
        (_frequency.get( i - 1 ) < _frequency.get( i )) &&
@@ -127,7 +134,8 @@ public class StatPrinter
   // //*************** QUESTION 04 **************************
   // //postcond: returns list of modes in _frequency
   /*
-  Run time frequency: O(n) or linear; as the list grows, the function will
+  Run time frequency: O(n) or linear; this method calls isLocalMode() for each element,
+  and isLocalMode() has O(1) runtime; as the list grows, the function will
   take a longer time to run because it needs to check if all the integers are
   local modes.
   */
@@ -142,12 +150,15 @@ public class StatPrinter
     return storage;
 
   }
+
   //
   //
   // //*************** QUESTION 05 **************************
   // //precond:  longestBar > 0
   /*
-  Run time frequency:
+  Run time frequency: O(n) or linear; this method first calls max(),
+  which takes constant runtime. then, information is printed reegarding each element in
+  _frequency, which again takes constant runtime.
   */
   public void printHistogram( int longestBar )
   {

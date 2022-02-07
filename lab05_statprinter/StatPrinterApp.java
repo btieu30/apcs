@@ -1,8 +1,8 @@
-// Team Fresh - Brianna, Raven, William
+// Team Fresh (Brianna Tieu, Raven (Ruiwen) Tang, William Vongphanith)
 // APCS pd06
-// L05 -- pulling it together
+// L05 -- pulling it together / writing StatPrinter class
 // 2022-02-03
-// time spent: 0.5 hrs
+// time spent: 1.0 hrs
 
 /***
  * class StatPrinterApp
@@ -18,10 +18,8 @@ public class StatPrinterApp
     /*=================
       data:
       [2,5,2,3,4,4,4]
-
       desired _freq:
       [0,0,2,1,3,1]
-
       freq initially:
       [0,0,0,0,0,0]
       =================*/

@@ -1,15 +1,30 @@
-Team Fresh - Brianna, Raven, William
-APCS pd06
-L05 -- pulling it together
-2022-02-03
-time spent: 0.5 hrs
-
+// Team Fresh (Brianna Tieu, Raven (Ruiwen) Tang, William Vongphanith)
+// APCS pd06
+// L05 -- pulling it together / writing StatPrinter class
+// 2022-02-03
+// time spent: 1.0 hrs
 
 DISCO
 ------------------------------------------------
 * A local mode is derived from a frequency list and is categorized by a value
   being larger than both of its neighbors.
-* A local mode can never be at the end of a list.
+* A local mode can never be at the end of a list (either left or right).
+* To ensure compilability from the beginning, either comment out methods with
+non-void return types or simply include a line that allows the method of concern to compile.
+For example, a method with boolean return type that hasn't been implemented yet can contain the content:
+"return false;" to allow the file to compile.
+* Nesting is something to be aware of when trying to reduce runtime complexity or computing runtime
+complexity. In printHistogram, we require the value of max(_frequency), which is a method call that takes
+linear runtime. If this method call is used everytime we need to compare an element of _frequency, the printHistogram()
+method takes O(n^2) runtime, because these comparisons occur inside of a for loop that iterates through _frequency.
+However, if the value of max(_frequency) is stored in a variable before the for loop begins and the
+variable is used in comparisons instead, we have O(n) + O(n) runtime
+rather than O(n) * O(n) runtime, which leads to the desired linear runtime.
+* Short circuiting is important for ensuring less run-time errors. In isLocalMode(), it's important to check if the
+argument is a valid index before attempting to access those indexes. This prioritization can be completed through placing
+those requirements at the beginning of the conditions (and concatenating with &&) or nesting if statements. In the
+&& case, the program will short circuit if the first or second condition is not fulfilled and will not attempt to
+check the later conditions, as the whole expression already evaluates to false if one of the conditions is not met.
 ================================================
 
 
@@ -17,10 +32,17 @@ QCC
 ------------------------------------------------
 * How would we represent the longestBar if it is not divisible by the max and
   vice-versa? Should we prioritize the ratio of the bars or the user input?
+* max() was the first method we dealt with, as we realized it was required to determine the size of the _frequency ArrayList
+in the constructor.
+* It's crucial to initialize the elements of an ArrayList before attempting to set elements. Without initialization,
+there will be a Null Pointer error.
 ================================================
 
 
 MISC
 ------------------------------------------------
-* Mr.Mykolyk's tips for awesome should always be considered!
+* Mr.Mykolyk's tips for awesome should always be considered and followed! Particularly for this lab,
+differentiating between data and _frequency elements and indexes got pretty confusing
+at times, so using KtS and planning before coding were very helpful.
+* Always check the closet for skeletons, like the skeleton for this file!
 ================================================
