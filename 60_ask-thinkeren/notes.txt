@@ -1,0 +1,28 @@
+Team Fresh (Brianna Tieu, Raven (Ruiwen) Tang, William Vongphanith)
+APCS pd06
+HW60 -- A Termite is-a Turtle, a Thinker is-a Turtle
+2022-02-07
+time spent: 0.5 hrs
+
+DISCO:
+* We learned how the MergeSort algorithm works and how we can apply the
+  algorithm to sort objects in the real-world, such as a deck of cards.
+* We went over the term 'outsourcing' and how it helps us optimize or make
+  processes more efficient.
+
+QCC:
+* How does the efficiency of MergeSort compare to our previous sorting
+  algorithms such as BubbleSort, SelectionSort and InsertionSort?
+* Will the thinkeren ever be able to successfully sort a deck of cards using
+  MergeSort?
+
+THINKER FIRMWARE:
+0: Accept the deck of cards
+1: Ask 'Is it sorted (does the deck have only one card)?'
+  a. yes; hand your card back to the thinker that gave it to you
+  b. no; split the deck in half and pass on both halves to thinkeren that do
+     not possess any cards
+2: If your answer to q1 was 'no', wait for the pair of thinkeren to return both
+    parts of the deck
+3: Once both halves are returned, compare and sort both halves
+4: Repeat!
