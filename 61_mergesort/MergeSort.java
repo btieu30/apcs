@@ -20,43 +20,77 @@ public class MergeSort
   private static int[] merge( int[] a, int[] b )
   {
     int[] merged = new int[a.length + b.length];
-    ArrayList<Integer> mergedAL = new ArrayList<Integer>();
-    ArrayList<Integer> a_temp = new ArrayList<Integer>();
-    ArrayList<Integer> b_temp = new ArrayList<Integer>();
-    for(int i : a){
-      a_temp.add(i);
-    }
-    for(int i : b){
-      b_temp.add(i);
-    }
-    while(a_temp.size() > 0 && b_temp.size() > 0){
-      if(a_temp.size() == 0){
-        while(b_temp.size() > 0){
-          mergedAL.add(b_temp.get(i));
-          b_temp.remove(i);
-        }
-      }
-      else if(b_temp.size() == 0){
-        while(a_temp.size() > 0){
-          mergedAL.add(a_temp.get(i));
-          a_temp.remove(i);
-        }
-      }
-      else if(a_temp.get(0) <= b_temp.get(0)){
-        mergedAL.add(a_temp.get(0));
-        a_temp.remove(0);
-      }
-      else{
-        mergedAL.add(b_temp.get(0));
-        b_temp.remove(0);
-      }
-    }
-    for(int i = 0; i < mergedAL.size(); i++){
-      merged[i] = mergedAL.get(i);
-    }
-    return merged;
+    // ArrayList<Integer> mergedAL = new ArrayList<Integer>();
+    // ArrayList<Integer> a_temp = new ArrayList<Integer>();
+    // ArrayList<Integer> b_temp = new ArrayList<Integer>();
+    // //populate temporary arrays
+    // for(int i : a){
+    //   a_temp.add(i);
+    // }
+    // for(int i : b){
+    //   b_temp.add(i);
+    // }
+    // //while both arrays are still populated
+    // while(a_temp.size() > 0 && b_temp.size() > 0) {
+    //   if(a_temp.get(0) <= b_temp.get(0)){
+    //     mergedAL.add(a_temp.get(0));
+    //     a_temp.remove(0);
+    //   }
+    //   else{
+    //     mergedAL.add(b_temp.get(0));
+    //     b_temp.remove(0);
+    //   }
+    // }
+    // //move everything from b to merged if a is empty
+    // if(a_temp.size() == 0){
+    //   while(b_temp.size() > 0){
+    //     int i = 0;
+    //     mergedAL.add(b_temp.get(i));
+    //     b_temp.remove(i);
+    //     i++;
+    //   }
+    // }
+    // //move everything from a to merged if b is empty
+    // if(b_temp.size() == 0){
+    //   while(a_temp.size() > 0){
+    //     int i = 0;
+    //     mergedAL.add(a_temp.get(i));
+    //     a_temp.remove(i);
+    //     i++;
+    //   }
+    // }
+    // for(int i = 0; i < mergedAL.size(); i++){
+    //   merged[i] = mergedAL.get(i);
+    // }
+    int aIndex = 0;
+    int bIndex = 0;
 
-  }//end merge()
+    while (aIndex < a.length && bIndex < b.length) {
+      if (a[aIndex] < b[bIndex]) {
+        merged[aIndex + bIndex] = a[aIndex];
+        aIndex++;
+      }
+      else {
+        merged[aIndex + bIndex] = b[bIndex];
+        bIndex++;
+      }
+    }
+    if (aIndex == a.length) {
+      while (aIndex + bIndex != merged.length) {
+        merged[aIndex + bIndex] = b[bIndex];
+        bIndex++;
+      }
+    }
+    if (bIndex == b.length) {
+      while (aIndex + bIndex != merged.length) {
+        merged[aIndex + bIndex] = a[aIndex];
+        aIndex++;
+      }
+  }
+    return merged;
+}
+
+//end merge()
 
 
   /******************************************************
@@ -64,10 +98,23 @@ public class MergeSort
    * Sorts input array using mergesort algorithm
    * Returns sorted version of input array (ascending)
    ******************************************************/
-  // public static int[] sort( int[] arr )
-  // {
-  //
-  // }//end sort()
+  public static int[] sort( int[] arr )
+  {
+    int[] left = new int[arr.length / 2];
+    int[] right = new int[arr.length - left.length];
+    if (arr.length > 1) {
+    for (int i = 0; i < left.length; i++) {
+      left[i] = arr[i];
+    }
+    for (int i = 0; i < right.length; i++) {
+      right[i] = arr[i + left.length];
+    }
+  }
+  else {
+    return arr;
+  }
+  return merge( sort(left), sort(right) );
+}//end sort()
 
 
 
@@ -81,10 +128,11 @@ public class MergeSort
 
   //helper method for displaying an array
   public static void printArray( int[] a ) {
-    System.out.print("[");
+    String arr = "[";
     for( int i : a )
-      System.out.print( i + ",");
-    System.out.println("]");
+      arr +=  i + ", ";
+    System.out.println(arr.substring(0, arr.length() - 2) + "]");
+
   }
 
   //---------------------------------------------------
@@ -112,12 +160,12 @@ public class MergeSort
       System.out.println("\nMerging arr4 and arr6: ");
       printArray( merge(arr4,arr6) );
 
-      /*~~~~~~~~~~~~~~ Ye Olde Tester Bar ~~~~~~~~~~~~~~
       System.out.println("\nSorting arr4-7...");
       printArray( sort( arr4 ) );
       printArray( sort( arr5 ) );
       printArray( sort( arr6 ) );
       printArray( sort( arr7 ) );
+      /*~~~~~~~~~~~~~~ Ye Olde Tester Bar ~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 
