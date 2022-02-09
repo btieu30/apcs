@@ -3,7 +3,7 @@ APCS pd06
 HW60 -- simple unit instructions -> powerful emergent behavior
 2022-02-07
 time spent: 0.5 hrs
-
+- edited for HW61 by Avocado: Brianna Tieu, Raven (Ruiwen) Tang
 
 DISCO
 ------------------------------------------------
@@ -19,6 +19,8 @@ DISCO
 * There is a very simple, almost base case-like condition for a "sorted" deck: simply, is there
   1 element in the deck?
 * Every thinker who comes in contact with a subdeck is both a giver and receiver of that exact subdeck.
+* There are multiple strategies for merge(). It can be done by copying to ArrayLists and using remove()
+  and get(0) [this method doesn't require the tracking of indexes OR using arrays and keeping track of indexes.
 ================================================
 
 
@@ -49,10 +51,11 @@ THINKER FIRMWARE
 2: If your answer to q1 was "no," wait for the pair of thinkeren to return both
     parts of the deck
 3: Once both halves are returned, sort both halves by the following process
-  a. compare the starting elements of both halves
-  b. add the smaller element into the merged deck
+  a. put the decks facedown
+  b. draw the top (starting) elements of both halves, and compare
+  b. add the smaller element into the merged deck face up
   c. repeat until all elements are in the merged deck
-4: Pass your now sorted deck to the thinker who gave it to you.
+4: Pass your now sorted deck to the thinker who gave it to you
 ================================================
 
 

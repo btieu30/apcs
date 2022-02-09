@@ -1,11 +1,16 @@
+/**
+Avocado: Brianna Tieu, Raven (Ruiwen) Tang
+APCS pd06
+HW61 -- Instructions so Simple... / merge sort
+2022-02-8
+time spent: 0.8 hours
+**/
+
 import java.util.ArrayList;
 /***
-
   class MergeSort
   Implements mergesort on array of ints.
-
   Summary of Algorithm:
-
   ***/
 
 public class MergeSort
@@ -20,51 +25,53 @@ public class MergeSort
   private static int[] merge( int[] a, int[] b )
   {
     int[] merged = new int[a.length + b.length];
-    // ArrayList<Integer> mergedAL = new ArrayList<Integer>();
-    // ArrayList<Integer> a_temp = new ArrayList<Integer>();
-    // ArrayList<Integer> b_temp = new ArrayList<Integer>();
-    // //populate temporary arrays
-    // for(int i : a){
-    //   a_temp.add(i);
-    // }
-    // for(int i : b){
-    //   b_temp.add(i);
-    // }
-    // //while both arrays are still populated
-    // while(a_temp.size() > 0 && b_temp.size() > 0) {
-    //   if(a_temp.get(0) <= b_temp.get(0)){
-    //     mergedAL.add(a_temp.get(0));
-    //     a_temp.remove(0);
-    //   }
-    //   else{
-    //     mergedAL.add(b_temp.get(0));
-    //     b_temp.remove(0);
-    //   }
-    // }
-    // //move everything from b to merged if a is empty
-    // if(a_temp.size() == 0){
-    //   while(b_temp.size() > 0){
-    //     int i = 0;
-    //     mergedAL.add(b_temp.get(i));
-    //     b_temp.remove(i);
-    //     i++;
-    //   }
-    // }
-    // //move everything from a to merged if b is empty
-    // if(b_temp.size() == 0){
-    //   while(a_temp.size() > 0){
-    //     int i = 0;
-    //     mergedAL.add(a_temp.get(i));
-    //     a_temp.remove(i);
-    //     i++;
-    //   }
-    // }
-    // for(int i = 0; i < mergedAL.size(); i++){
-    //   merged[i] = mergedAL.get(i);
-    // }
+    ArrayList<Integer> mergedAL = new ArrayList<Integer>();
+    ArrayList<Integer> a_temp = new ArrayList<Integer>();
+    ArrayList<Integer> b_temp = new ArrayList<Integer>();
+    //populate temporary arrays
+    for(int i : a){
+      a_temp.add(i);
+    }
+    for(int i : b){
+      b_temp.add(i);
+    }
+    //while both arrays are still populated
+    while(a_temp.size() > 0 && b_temp.size() > 0) {
+      if(a_temp.get(0) <= b_temp.get(0)){
+        mergedAL.add(a_temp.get(0));
+        a_temp.remove(0);
+      }
+      else{
+        mergedAL.add(b_temp.get(0));
+        b_temp.remove(0);
+      }
+    }
+    //move everything from b to merged if a is empty
+    if(a_temp.size() == 0){
+      while(b_temp.size() > 0){
+        int i = 0;
+        mergedAL.add(b_temp.get(i));
+        b_temp.remove(i);
+        i++;
+      }
+    }
+    //move everything from a to merged if b is empty
+    if(b_temp.size() == 0){
+      while(a_temp.size() > 0){
+        int i = 0;
+        mergedAL.add(a_temp.get(i));
+        a_temp.remove(i);
+        i++;
+      }
+    }
+    for(int i = 0; i < mergedAL.size(); i++){
+      merged[i] = mergedAL.get(i);
+    }
+    return merged;
+
+    /** ALTERNATE SOLUTION
     int aIndex = 0;
     int bIndex = 0;
-
     while (aIndex < a.length && bIndex < b.length) {
       if (a[aIndex] < b[bIndex]) {
         merged[aIndex + bIndex] = a[aIndex];
@@ -88,7 +95,9 @@ public class MergeSort
       }
   }
     return merged;
-}
+    **/
+  }
+
 
 //end merge()
 
@@ -103,17 +112,17 @@ public class MergeSort
     int[] left = new int[arr.length / 2];
     int[] right = new int[arr.length - left.length];
     if (arr.length > 1) {
-    for (int i = 0; i < left.length; i++) {
-      left[i] = arr[i];
+        for (int i = 0; i < left.length; i++) {
+            left[i] = arr[i];
+        }
+        for (int i = 0; i < right.length; i++) {
+            right[i] = arr[i + left.length];
+        }
     }
-    for (int i = 0; i < right.length; i++) {
-      right[i] = arr[i + left.length];
+    else {
+        return arr;
     }
-  }
-  else {
-    return arr;
-  }
-  return merge( sort(left), sort(right) );
+    return merge( sort(left), sort(right) );
 }//end sort()
 
 
