@@ -1,0 +1,19 @@
+Team Avocado
+
+Activity 1:
+1a) public static double sentimentVal( String word )
+1b) Yes, this method requires a String parameter. When you try to pass a
+    different parameter type, you receive an error message saying that the
+    parameter type cannot be converted into a String (incompatible types).
+1c) The method returns a double value.
+
+2) sentimentVal("cheese"); --> 0.01
+   sentimentVal( "democracy" ); --> 0.36
+   sentimentVal( "Russia" ); --> -0.22
+   sentimentVal( "computer" ); --> 0.15
+
+3a) Yes, because sentimentVal takes a single String and returns a double value.
+3b) No, because sentimentVal only takes String parameters.
+3c) No, because sentimentVal only takes one String.
+
+Activity 2:
