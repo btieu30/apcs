@@ -100,10 +100,20 @@ public class Review {
 
   public static double totalSentiment ( String fileName ) {
     String test = textToString(fileName);
-    while (test.indexOf(" ") > -1) {
-      
+    int lastSpace = 0;
+    double totalVal = 0;
+    for (int i = 1; i <= test.length(); i++) {
+      if (test.substring(i - 1, i).equals(" ") ) {
+        totalVal += sentimentVal( test.substring(lastSpace, i) );
+        lastSpace = i;
+      }
     }
+    return totalVal;
   }
+
+  // public static int starRating (String fileName) {
+  //
+  // }
 
   /**
    * Returns the ending punctuation of a string, or the empty string if there is none
@@ -175,5 +185,6 @@ public class Review {
     System.out.println(sentimentVal( "democracy" ));
     System.out.println(sentimentVal( "Russia" ));
     System.out.println(sentimentVal( "computer" ));
+    System.out.println(totalSentiment("SimpleReview.txt"));
   }
 }
