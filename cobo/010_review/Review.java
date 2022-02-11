@@ -99,21 +99,41 @@ public class Review {
   }
 
   public static double totalSentiment ( String fileName ) {
-    String test = textToString(fileName);
-    int lastSpace = 0;
-    double totalVal = 0;
-    for (int i = 1; i <= test.length(); i++) {
-      if (test.substring(i - 1, i).equals(" ") ) {
-        totalVal += sentimentVal( test.substring(lastSpace, i) );
-        lastSpace = i;
-      }
+    String rev = textToString(fileName);
+    double totSent = 0;
+    while(rev.indexOf(" ") > -1){
+	totSent += sentimentVal(removePunctuation(rev.substring(0, rev.indexOf(" "))));
+	rev = rev.substring(rev.indexOf(" ") + 1, rev.length());
     }
-    return totalVal;
+    totSent += sentimentVal(removePunctuation(rev));
+    return totSent;
   }
 
-  // public static int starRating (String fileName) {
-  //
-  // }
+  public static int starRating (String fileName) {
+    String rev = textToString(fileName);
+    double total = totalSentiment(fileName);
+    int wordCount = 0;
+    while(rev.indexOf(" ") > -1){
+	wordCount += 1;
+    }
+    wordCount += 1;
+    if(total/wordCount >= 1){
+    	return 5;
+    }
+    if(total/wordCount >= 0.5){
+    	return 4;
+    }
+    if(total/wordCount >= 0){
+    	return 3;
+    }
+    if(total/wordCount >= -0.5){
+    	return 2;
+    }
+    if(total/wordCount >= -1){
+    	return 1;
+    }
+    return 0;
+  }
 
   /**
    * Returns the ending punctuation of a string, or the empty string if there is none
@@ -181,10 +201,37 @@ public class Review {
   }
 
   public static void main(String[] args) {
-    System.out.println(sentimentVal( "cheese" ));
-    System.out.println(sentimentVal( "democracy" ));
-    System.out.println(sentimentVal( "Russia" ));
-    System.out.println(sentimentVal( "computer" ));
-    System.out.println(totalSentiment("SimpleReview.txt"));
+    System.out.println("sentiment value of 'cheese': " + sentimentVal( "cheese" ));
+    System.out.println("sentiment value of 'democracy' :" + sentimentVal( "democracy" ));
+    System.out.println("sentiment value of 'Russia': " + sentimentVal( "Russia" ));
+    System.out.println("sentiment value of 'computer': " + sentimentVal( "computer" ));
+    System.out.println("total sentiment value of simple review: " + totalSentiment("SimpleReview.txt"));
+    String[] simpReview = new String[21];
+    simpReview[0] = "The";
+    simpReview[1] = "food";
+    simpReview[2] = "was";
+    simpReview[3] = "good";
+    simpReview[4] = "so";
+    simpReview[5] = "it's";
+    simpReview[6] = "too";
+    simpReview[7] = "bad";
+    simpReview[8] = "their";
+    simpReview[9] = "service";
+    simpReview[10] = "is";
+    simpReview[11] = "awful";
+    simpReview[12] = "Terrible";
+    simpReview[13] = "service";
+    simpReview[14] = "with";
+    simpReview[15] = "the";
+    simpReview[16] = "hostess";
+    simpReview[17] = "who";
+    simpReview[18] = "was";
+    simpReview[19] = "passive";
+    simpReview[20] = "aggressive";
+    double check = 0;
+    for(String s : simpReview){
+    	check += sentimentVal(s);
+    }
+    System.out.println("total sentiment value of simple review, checking by sum: " + check);
   }
 }
