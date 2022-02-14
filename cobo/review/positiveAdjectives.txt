@@ -1,8 +1,9 @@
 humorous
-hospitality
+hospitable
 gleeful
 glad
 gentle
+good
 honourable
 honest
 helpful
@@ -23,7 +24,7 @@ fair
 gorgeous
 generous
 funny
-Fun
+fun
 exciting
 dazzling
 cultured
@@ -51,7 +52,6 @@ better
 benevolent
 beautiful
 accurate
-
 acceptable
 agreeable
 appetizing

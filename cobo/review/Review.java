@@ -102,8 +102,8 @@ public class Review {
     String rev = textToString(fileName);
     double totSent = 0;
     while(rev.indexOf(" ") > -1){
-	totSent += sentimentVal(removePunctuation(rev.substring(0, rev.indexOf(" "))));
-	rev = rev.substring(rev.indexOf(" ") + 1, rev.length());
+	    totSent += sentimentVal(removePunctuation(rev.substring(0, rev.indexOf(" "))));
+	    rev = rev.substring(rev.indexOf(" ") + 1, rev.length());
     }
     totSent += sentimentVal(removePunctuation(rev));
     return totSent;
@@ -114,24 +114,23 @@ public class Review {
     double total = totalSentiment(fileName);
     int wordCount = 0;
     while(rev.indexOf(" ") > -1){
-      removePunctuation(rev.substring(0, rev.indexOf(" ")));
-    	rev = rev.substring(rev.indexOf(" ") + 1, rev.length());
 	    wordCount += 1;
+      rev = rev.substring(rev.indexOf(" ") + 1, rev.length());
     }
     wordCount += 1;
-    if(total/wordCount >= 1){
+    if(total/wordCount >= 0.6){
     	return 5;
     }
-    if(total/wordCount < 1 && total/wordCount >= 0.5){
+    if(total/wordCount >= 0.3){
     	return 4;
     }
-    if(total/wordCount < 0.5 && total/wordCount >= 0){
+    if(total/wordCount >= 0){
     	return 3;
     }
-    if(total/wordCount < 0 && total/wordCount >= -0.5){
+    if(total/wordCount >= -0.3){
     	return 2;
     }
-    if(total/wordCount < -0.5 && total/wordCount >= -1){
+    if(total/wordCount >= -0.6){
     	return 1;
     }
     return 0;
@@ -142,20 +141,41 @@ public class Review {
     String next = "";
     String fake = "";
     String adj = "";
+    String punct = "";
+    boolean posRev = false;
+    if(totalSentiment(fileName) > 0){
+      posRev = true;
+    }
     while (rev.indexOf("*") > -1) {
       fake += rev.substring(0, rev.indexOf("*"));
       rev = rev.substring(rev.indexOf("*"));
       adj = rev.substring(rev.indexOf("*"), rev.indexOf(" "));
-      if (sentimentVal(adj.substring(1)) > 0) {
-        fake += randomPositiveAdj();
-        rev = rev.substring(rev.indexOf(" "));
-      } else {
-        fake += randomNegativeAdj();
-        rev = rev.substring(rev.indexOf(" "));
+      punct = getPunctuation(rev.substring(rev.indexOf("*"), rev.indexOf(" ")));
+      if(posRev){
+        if (sentimentVal(adj.substring(1)) <= 0) {
+          fake += randomPositiveAdj() + punct;
+          rev = rev.substring(rev.indexOf(" "));
+        }
+        else{
+          fake += adj.substring(1);
+          rev = rev.substring(rev.indexOf(" "));
+        }
+      }
+      else{
+        if (sentimentVal(adj.substring(1)) >= 0) {
+          fake += randomNegativeAdj() + punct;
+          rev = rev.substring(rev.indexOf(" "));
+        }
+        else{
+          fake += adj.substring(1);
+          rev = rev.substring(rev.indexOf(" "));
+        }
       }
     }
+    fake += rev;
     return fake;
-}
+  }
+
   /**
    * Returns the ending punctuation of a string, or the empty string if there is none
    */
@@ -227,7 +247,7 @@ public class Review {
     System.out.println("sentiment value of 'Russia': " + sentimentVal( "Russia" ));
     System.out.println("sentiment value of 'computer': " + sentimentVal( "computer" ));
     System.out.println("total sentiment value of simple review: " + totalSentiment("SimpleReview.txt"));
-    String[] simpReview = new String[18];
+    String[] simpReview = new String[21];
     simpReview[0] = "The";
     simpReview[1] = "food";
     simpReview[2] = "was";
@@ -240,19 +260,22 @@ public class Review {
     simpReview[9] = "service";
     simpReview[10] = "is";
     simpReview[11] = "awful";
-    simpReview[12] = "with";
-    simpReview[13] = "the";
-    simpReview[14] = "hostess";
-    simpReview[15] = "who";
-    simpReview[16] = "was";
-    simpReview[17] = "aggressive";
+    simpReview[12] = "Terrible";
+    simpReview[13] = "service";
+    simpReview[14] = "with";
+    simpReview[15] = "the";
+    simpReview[16] = "hostess";
+    simpReview[17] = "who";
+    simpReview[18] = "was";
+    simpReview[19] = "passive";
+    simpReview[20] = "aggressive";
     double check = 0;
     for(String s : simpReview){
     	check += sentimentVal(s);
     }
     System.out.println("total sentiment value of simple review, checking by sum: " + check);
-
-    System.out.println(starRating("SimpleReview.txt"));
-    System.out.println(fakeReview("SimpleReview.txt"));
+    System.out.println("star rating of simple review: " + starRating("SimpleReview.txt"));
+    System.out.println("star rating of another review: " + starRating("AnotherReview.txt"));
+    System.out.println("generated review: " + fakeReview("SimpleReview.txt"));
   }
 }

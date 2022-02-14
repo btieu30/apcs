@@ -1,5 +1,6 @@
 aggressive
 arrogant
+bad
 obstinate
 moody
 impolite
@@ -51,7 +52,6 @@ racist
 sarcastic
 ashamed
 mean
-
 rotten
 stale
 foul

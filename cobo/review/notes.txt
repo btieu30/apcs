@@ -1,6 +1,7 @@
 Team Avocado
 
 Activity 1:
+
 1a) public static double sentimentVal( String word )
 1b) Yes, this method requires a String parameter. When you try to pass a
     different parameter type, you receive an error message saying that the
@@ -17,3 +18,55 @@ Activity 1:
 3c) No, because sentimentVal only takes one String.
 
 Activity 2:
+
+4) The totalSentiment method works by storing the file contents in a String rev
+   using the textToString() method. It also initializes a double that will accumulate
+   the total sentiment value. A while method iterates until there are no more spaces
+   in rev, and during each iteration, the sentimentVal of each word substring(found with
+   knowledge of indexOf(" ") and by using removePunctuation()) is added to the accumulation
+   double. That substring is then cut out of rev. After the for loop, there should be one word
+   left in the String, so its sentimentVal is added to the accumulation double, which is
+   then returned.
+
+5a) The ratings generally make sense. They fall well into the general positive/negative
+   rating ranges, but they are not as extreme. For example, AnotherReview.txt should be a five
+   star review but is categorized as a three star review.
+5b) One adjustment could be adding a scale factor/exponent to the totalSentiment() method
+   so that reviews which fall on the extreme ends are given an extra amplification, while neutral
+   reviews stay close to the center of the spectrum. Another adjustment could be ignoring words that
+   are too close to 0 (and basically neutral) when summing up the sentiment values.
+
+6a) The student has made a logical error in basing conditionals and final star ratings on totalSentiment()
+   alone. For example, if a review is composed of enough negative words (for example, 3000 negative adjectives),
+   it will almost certainly exceed 15 in totalSentiment and show as a four star rating, while a review with
+   one positive word (and consisting of a total of one word) will categorize as a one or two star review.
+6b) This error can be fixed by taking the average of sentiment values rather than the total in the conditional.
+   totalSentiment() may be divided by a word count to find this average.In this way, a high word count cannot
+   outweigh a general negative sentiment, and a low word count cannot pull down the rating of a positive review.
+
+Activity 3:
+
+3) The indexOf() method returns the position of the earliest s, where s is the String parameter. The substring()
+   method returns a String consisting of the characters from indexes a to b, non-inclusive of b and where a and b
+   are its two int parameters. The indexOf() method can identify where a String breaks, particularly at a space, and
+   s.substring(0, s.indexOf(" ")) and s.substring(s.indexOf(" ")+1) can split the String s into two parts. It is necessary
+   to add 1 to the position of the space when copying the remainder of the String because we would not like to include
+   the space character at the beginning of the substring and would like to begin the substring from the character
+   immediately following the space.
+
+5) Calling static methods does not require an instance of the Review class, but calling non-static methods does require
+   using an instance of the Review class.
+
+6) fakeReview() could be modified to create a fake positive review by replacing adjectives with only words from
+   positiveAdjectives.txt, and it could be modified to create a fake negative review by replacing adjectives with
+   only words from negativeAdjectives.txt.
+
+Activity 4
+1) One possible reason to autogenerate a negative review is if a reviewer had a bad experience but is not sure where to start
+   in their review. Autogenerating a negative review can provide a base/template for them to edit.
+
+2) One possible reason to autogenerate a positive review is if a reviewer had great experiences at several restaurants and would
+   like to mass add unique reviews to all of their Yelp pages but does not have the time to individually craft each one.
+
+3)
+- remove punctuation in totalSentiment
