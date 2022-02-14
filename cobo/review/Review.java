@@ -1,3 +1,5 @@
+//Team Avocado: Brianna Tieu, Raven (Ruiwen) Tang
+
 import java.util.Scanner;
 import java.io.File;
 import java.util.HashMap;
