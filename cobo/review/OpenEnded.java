@@ -1,5 +1,11 @@
-//Team Avocado: Brianna Tieu, Raven (Ruiwen) Tang
 
+/*
+Team Avocado: Brianna Tieu, Raven (Ruiwen) Tang
+APCS
+Lab06 -- Read/Review/Expand - cobo review lab
+2022-02-13
+time spent: 2.0
+*/
 import java.util.Scanner;
 
 public class OpenEnded {
