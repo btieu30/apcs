@@ -1,0 +1,10 @@
+Fresh :: Brianna Tieu, Raven (Ruiwen) Tang, William Vongphanith
+APCS pd06
+HW65: How Many Queens Can A Thinker Place, If a Thinker Can Place Queens...
+2022-02-16
+time spent: 0.5 hrs
+
+- The QueenBoard algo employs the idea of backtracking as discussed in class,
+  which slowly goes through all the possibilities, going back a step and
+  eliminating that possibility from the "tree". We continue with this process
+  until we eventually find a solution for the desired board dimensions.
