@@ -1,7 +1,7 @@
-// Clyde Sinclair
-// APCS pd0
-// HW68 -- recursively probing for a closed cycle
-// 2022-02-28m
+// Avocado: Brianna Tieu, Raven (Ruiwen) Tang
+// APCS pd06
+// HW68 -- ...and T-, Tr-, Tri-, Tries Again Until It's Done / recursively probing for a closed cycle
+// 2022-03-01
 // time spent:  hrs
 
 /***
@@ -15,16 +15,21 @@
  * $ java KnightTour [N]
  *
  * ALGO
- *
+ * From the starting position, find and move the knight to the next avaliable
+ * spot on the board.
+ * Repeat the first step until there are no more spots for the knight to move,
+ * Remove the most recently placed knight and repeat.
  * DISCO
- *
+ *  We can use Thread.sleep to slow down the process of our code and visualize
+ *  the board becoming populated by knights.
  * QCC
- *
+ *  - Why are we getting an "[0;0H" in the top left corner of our board when it is printed?
+ *** The following times are taken with delay() commented out. ***
  * Mean execution times for boards of size n*n:
- * n=5   __s    across __ executions
- * n=6   __s    across __ executions
- * n=7   __s    across __ executions
- * n=8   __s    across __ executions
+ * n=5   0.793s    across 3 executions
+ * n=6   1.142s    across 3 executions
+ * n=7   179.701s    across 3 executions
+ * n=8   631.674s    across 3 executions
  *
  * POSIX PROTIP: to measure execution time from BASH, use time program:
  * $ time java KnightTour 5
@@ -52,7 +57,7 @@ public class KnightTour
     TourFinder tf = new TourFinder( n );
 
     //clear screen using ANSI control code
-    System.out.println( "[2J" );
+    System.out.println( " [2J" );
 
     //display board
     System.out.println( tf );
@@ -64,14 +69,21 @@ public class KnightTour
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //for random starting location, use lines below:
-    int startX = Math.random() * n
-    int startY = Math.random() * n
-    //tf.findTour( startX, startY, 1 );   // 1 or 0 ?
+    int startX = (int)(Math.random() * n);
+    int startY = (int)(Math.random() * n);
+    //tf.findTour( startX, startY, 1 );   // 1 or 0 ? either is fine as long as it is kept consistent throughout, and the offset is taken into consideration
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // PUSHING FARTHER...
     // Systematically attempt to solve from every position on the board?
+    /*
+    for(int i = 2; i < n+2; i++){
+        for(int j = 2; j < n+2; j++){
+            tf.findTour( i, j, 1);
+        }
+    }
+    */
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   }//end main()
@@ -92,12 +104,21 @@ class TourFinder
     _sideLength = n;
 
     //init 2D array to represent square board with moat
-    _board =
+    _board = new int[n+4][n+4];
 
     //SETUP BOARD --  0 for unvisited cell
     //               -1 for cell in moat
     //---------------------------------------------------------
-    ???
+    for(int i = 0; i < n+4; i++){
+        for(int j = 0; j < n+4; j++){
+            if(i < 2 || j < 2 || i > n+1 || j > n+1){
+                _board[i][j] = -1;
+            }
+            else{
+                _board[i][j] = 0;
+            }
+        }
+    }
     //---------------------------------------------------------
 
   }//end constructor
@@ -109,7 +130,7 @@ class TourFinder
   public String toString()
   {
     //send ANSI code "ESC[0;0H" to place cursor in upper left
-    String retStr = "[0;0H";
+    String retStr = " [0;0H";
     //emacs shortcut: C-q, then press ESC
     //emacs shortcut: M-x quoted-insert, then press ESC
 
@@ -182,11 +203,18 @@ class TourFinder
        *     g . . . b
        *     . h . a .
       ******************************************/
-      ???
+      findTour(x+1, y+2, moves+1);
+      findTour(x+2, y+1, moves+1);
+      findTour(x+2, y-1, moves+1);
+      findTour(x+1, y-2, moves+1);
+      findTour(x-1, y-2, moves+1);
+      findTour(x-2, y-1, moves+1);
+      findTour(x-2, y+1, moves+1);
+      findTour(x-1, y+2, moves+1);
 
       //If made it this far, path did not lead to tour, so back up...
       // (Overwrite number at this cell with a 0.)
-        ???
+      _board[x][y] = 0;
 
       System.out.println( this ); //refresh screen
     }
