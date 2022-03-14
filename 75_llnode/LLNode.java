@@ -1,5 +1,9 @@
 /***
  * Rona Recovery Squad: Brianna Tieu (with help of DuoLingo)
+ * APCS 06
+ * HW 75 -- Nodal Recall
+ * 2022-03-13
+ * time spent: 0.8 hrs
  * class LLNode
  * Implements a node, for use in lists and other container classes.
  * Stores its data as a String
