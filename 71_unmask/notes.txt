@@ -1,0 +1,29 @@
+Rona Recovery Squad - Brianna Tieu, Pepe the Frog (Ducky)
+APCS pd06
+HW71 -- Reading for intent, tracing for VICTORY
+2022-03-07
+time spent: 1 hr
+
+  algo as pseudocode:
+  ------------------------------
+      v = arr[c]
+      swap arr[c], arr[b]
+      s = a
+      for i in [a..b-1]
+          if arr[i] < v
+              swap arr[s], arr[i]
+              s+=1
+      swap arr[b], arr[s]
+
+  DISCO
+   Why must mysterion return value s?
+
+  QCC
+
+  q0: What does it do?
+  a0: MYSTERION splits the array into two seperate arrays.
+       At the chosen partition, elements are organized so that all the smaller
+       elements are to the left and the greater elements are to the right.
+
+  q1: O(?)
+  a1: O(n)? The array is iterated through once with a for loop.
