@@ -1,9 +1,9 @@
 /*
 Duolingo -- Brianna Tieu, Courtney Huang, and Xinqing Lin
 APCS pd6
-HW77 -- Insert|Remove
-2022-03-15
-time spent: 0.7 hrs
+HW78 -- Double Up
+2022-03-16
+time spent: hrs
 DISCO:
 * To get the node after the one that is next to it we can use the method getNext() twice (tmp.getNext().getNext())
 QCC:
@@ -29,7 +29,7 @@ public class LList implements List //interface def must be in this dir
 {
 
   //instance vars
-  private LLNode _head;
+  private DLLNode _head;
   private int _size;
 
   // constructor -- initializes instance vars
@@ -44,7 +44,7 @@ public class LList implements List //interface def must be in this dir
 
   public boolean add( String newVal )
   {
-    LLNode tmp = new LLNode( newVal, _head );
+    DLLNode tmp = new DLLNode( null, newVal, _head );
     _head = tmp;
     _size++;
     return true;
@@ -55,15 +55,17 @@ public class LList implements List //interface def must be in this dir
     if ( index < 0 || index >= size() ) //if index invalid
       throw new IndexOutOfBoundsException();
 
-    LLNode tmp = _head;
+    DLLNode tmp = _head;
 
     for( int i=0; i < index - 1; i++ ) { //walking to index - 1
       tmp = tmp.getNext();
     }
 
-    LLNode addition = new LLNode(newVal, tmp.getNext()); //making new node and attaching it to the next node
+    DLLNode addition = new DLLNode(tmp, newVal, tmp.getNext()); //making new node and attaching it to the next node
 
     tmp.setNext( addition ); //attaching tmp to the new node
+    tmp.getNext().setPrevious( addition );
+    _size++; //incrementing size
 
   }
 
@@ -71,18 +73,26 @@ public class LList implements List //interface def must be in this dir
     if ( index < 0 || index >= size() ) //if index invalid
       throw new IndexOutOfBoundsException();
 
-    LLNode tmp = _head;
+    DLLNode tmp = _head;
+    String data;
 
-    for( int i=0; i < index - 1; i++ ) //walking to index - 1
-      tmp = tmp.getNext();
+    if (index == 0) {
+      data = _head.getCargo();
+      _head = _head.getNext();
+      _head.setPrevious(null);
+    }
+    else {
+      for( int i=0; i < index - 1; i++ ) //walking to index - 1
+        tmp = tmp.getNext();
 
-    String data = tmp.getNext().getCargo(); //getting the cargo of the node at index
+        data = tmp.getNext().getCargo(); //getting the cargo of the node at index
 
-    tmp.setNext( tmp.getNext().getNext() ); //setting the next node of the node at index - 1 to be the node at index + 1
+        tmp.setNext( tmp.getNext().getNext() ); //setting the next node of the node at index - 1 to be the node at index + 1
                                             //(this is so that we "skip over" the node we're trying to remove)
-
-    return data;
-  }
+      }
+      _size--; //decrementing size
+      return data;
+    }
 
 
   public String get( int index )
@@ -91,7 +101,7 @@ public class LList implements List //interface def must be in this dir
       throw new IndexOutOfBoundsException();
 
     String retVal;
-    LLNode tmp = _head; //create alias to head
+    DLLNode tmp = _head; //create alias to head
 
     //walk to desired node
     for( int i=0; i < index; i++ )
@@ -109,7 +119,7 @@ public class LList implements List //interface def must be in this dir
     if ( index < 0 || index >= size() )
       throw new IndexOutOfBoundsException();
 
-    LLNode tmp = _head; //create alias to head
+    DLLNode tmp = _head; //create alias to head
 
     //walk to desired node
     for( int i=0; i < index; i++ )
@@ -134,10 +144,10 @@ public class LList implements List //interface def must be in this dir
   // override inherited toString
   public String toString()
   {
-    String retStr = "HEAD->";
-    LLNode tmp = _head; //init tr
+    String retStr = "NULL <-> HEAD <-> ";
+    DLLNode tmp = _head; //init tr
     while( tmp != null ) {
-	    retStr += tmp.getCargo() + "->";
+	    retStr += tmp.getCargo() + " <-> ";
 	    tmp = tmp.getNext();
     }
     retStr += "NULL";

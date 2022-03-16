@@ -1,3 +1,11 @@
+/*
+Duolingo -- Brianna Tieu, Courtney Huang, and Xinqing Lin
+APCS pd6
+HW78 -- Double Up
+2022-03-16
+time spent: hrs
+*/
+
 /***
  * interface List
  * subset of actual Java List interface

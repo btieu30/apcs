@@ -1,3 +1,11 @@
+/*
+Duolingo -- Brianna Tieu, Courtney Huang, and Xinqing Lin
+APCS pd6
+HW78 -- Double Up
+2022-03-16
+time spent: hrs
+*/
+
 /***
  * class ListTester
  * ...for putting your LList through its paces
@@ -10,7 +18,6 @@ public class ListTester
 {
   public static void main( String[] args )
   {
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //instantiate... var type List, obj type LList
     List wu = new LList();
     System.out.println(wu);
@@ -42,6 +49,7 @@ public class ListTester
     wu.remove(n);
     System.out.println("Updated list: " + wu);
     }
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 
