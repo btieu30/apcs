@@ -3,7 +3,7 @@ Duolingo -- Brianna Tieu, Courtney Huang, and Xinqing Lin
 APCS pd6
 HW78 -- Double Up
 2022-03-16
-time spent: hrs
+time spent: 1.3 hrs
 DISCO:
 * To get the node after the one that is next to it we can use the method getNext() twice (tmp.getNext().getNext())
 QCC:
@@ -30,12 +30,14 @@ public class LList implements List //interface def must be in this dir
 
   //instance vars
   private DLLNode _head;
+  private DLLNode _tail;
   private int _size;
 
   // constructor -- initializes instance vars
   public LList( )
   {
     _head = null; //at birth, a list has no elements
+    _tail = null;
     _size = 0;
   }
 
@@ -46,27 +48,42 @@ public class LList implements List //interface def must be in this dir
   {
     DLLNode tmp = new DLLNode( null, newVal, _head );
     _head = tmp;
+    if (_size == 0) {
+      _tail = tmp;
+    }
+    else {
+      tmp.getNext().setPrevious(tmp);
+    }
     _size++;
     return true;
   }
-// 0 1 [5] 2 3 4
 
   public void add( int index, String newVal ) {
-    if ( index < 0 || index >= size() ) //if index invalid
-      throw new IndexOutOfBoundsException();
 
-    DLLNode tmp = _head;
+    if ( index < 0 || index >= size() ) //--//
+	    throw new IndexOutOfBoundsException();
 
-    for( int i=0; i < index - 1; i++ ) { //walking to index - 1
-      tmp = tmp.getNext();
+    DLLNode newNode = new DLLNode(null, newVal, null );
+
+    //if index==0, insert node before head node
+    if ( index == 0 )
+	    add( newVal );
+    else {
+	    DLLNode tmp = _head; //create alias to head
+
+	    //walk to node before desired node
+	    for( int i=0; i < index-1; i++ )
+        tmp = tmp.getNext();
+
+	    //insert new node
+      tmp.getNext().setPrevious( newNode );
+	    newNode.setNext( tmp.getNext() );
+	    tmp.setNext( newNode );
+      newNode.setPrevious( tmp );
+
+	    //increment size attribute
+	    _size++;
     }
-
-    DLLNode addition = new DLLNode(tmp, newVal, tmp.getNext()); //making new node and attaching it to the next node
-
-    tmp.setNext( addition ); //attaching tmp to the new node
-    tmp.getNext().setPrevious( addition );
-    _size++; //incrementing size
-
   }
 
   public String remove( int index ) {
@@ -76,19 +93,36 @@ public class LList implements List //interface def must be in this dir
     DLLNode tmp = _head;
     String data;
 
-    if (index == 0) {
+    if (_size == 1) {
+      data = _head.getCargo();
+      _head = null;
+      _tail = null;
+
+      //_head.setNext( null );
+      //_tail.setPrevious( null );
+
+    }
+    else if (index == 0) {
       data = _head.getCargo();
       _head = _head.getNext();
       _head.setPrevious(null);
     }
+    else if (index == _size - 1) {
+      data = _tail.getCargo();
+      _tail = _tail.getPrevious();
+      _tail.setNext( null );
+    }
     else {
-      for( int i=0; i < index - 1; i++ ) //walking to index - 1
+      for( int i=0; i < index - 1; i++ ) { //walking to index - 1
         tmp = tmp.getNext();
+      }
 
         data = tmp.getNext().getCargo(); //getting the cargo of the node at index
 
         tmp.setNext( tmp.getNext().getNext() ); //setting the next node of the node at index - 1 to be the node at index + 1
                                             //(this is so that we "skip over" the node we're trying to remove)
+
+        tmp.getNext().setPrevious( tmp );
       }
       _size--; //decrementing size
       return data;
@@ -150,7 +184,7 @@ public class LList implements List //interface def must be in this dir
 	    retStr += tmp.getCargo() + " <-> ";
 	    tmp = tmp.getNext();
     }
-    retStr += "NULL";
+    retStr += "TAIL <-> NULL";
     return retStr;
   }
 
