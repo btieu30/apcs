@@ -1,38 +1,45 @@
 /*
 Duolingo -- Brianna Tieu, Courtney Huang, and Xinqing Lin
 APCS pd6
-HW75 -- Nodal Recall
-2022-03-12
-time spent: 0.6 hrs
+HW78 -- Double Up
+2022-03-16
+time spent: hrs
 */
 
 /***
- * class LLNode
+ * class DLLNode
  * Implements a node, for use in lists and other container classes.
  * Stores its data as a String
  **/
 
-public class LLNode
+public class DLLNode
 {
   //instance vars
+  private DLLNode previous;
   private String value;
-  private LLNode next;
+  private DLLNode next;
 
   // constructor
-  public LLNode( String value, LLNode next )
+  public DLLNode( DLLNode previous, String value, DLLNode next )
   {
+    this.previous = previous;
     this.value = value;
     this.next = next;
   }
 
 
   //--------------v  ACCESSORS  v--------------
+  public DLLNode getPrevious()
+  {
+    return previous;
+  }
+
   public String getCargo()
   {
     return value;
   }
 
-  public LLNode getNext()
+  public DLLNode getNext()
   {
     return next;
   }
@@ -40,13 +47,19 @@ public class LLNode
 
 
   //--------------v  MUTATORS  v--------------
+  public DLLNode setPrevious( DLLNode newPrevious )
+  {
+    previous = newPrevious;
+    return previous;
+  }
+
   public String setCargo( String newCargo )
   {
     value = newCargo;
     return value;
   }
 
-  public LLNode setNext( LLNode newNext )
+  public DLLNode setNext( DLLNode newNext )
   {
     next = newNext;
     return next;
@@ -68,13 +81,13 @@ public class LLNode
     //Below is an exercise in creating a linked list...
 
     //Create a node
-    LLNode first = new LLNode( "cat", null );
+    DLLNode first = new DLLNode( null, "cat", null );
 
     //Create a new node after the first
-    first.setNext( new LLNode( "dog", null ) );
+    first.setNext( new DLLNode( first, "dog", null ) );
 
     //Create a third node after the second
-    first.getNext().setNext( new LLNode( "cow", null ) );
+    first.getNext().setNext( new DLLNode(first.getNext().getNext(), "cow", null ) );
 
     //A naive list traversal, has side effects.... ??
        while( first != null ) {
@@ -87,7 +100,7 @@ public class LLNode
     //A: The value changes back to null
 
     //...so better: ?
-    LLNode pop = new LLNode (first.getCargo(), first.getNext());
+    DLLNode pop = new DLLNode (null, first.getCargo(), first.getNext());
     while( pop != null ) {
     System.out.println( pop.getCargo() );
     pop = pop.getNext();
@@ -100,4 +113,4 @@ public class LLNode
 
   }//end main
 
-}//end class LLNode
+}//end class DLLNode
