@@ -1,16 +1,25 @@
-/***
- * class Scheme
- * Simulates a rudimentary Scheme interpreter
- *
+/*
+Duolingo -- Brianna Tieu, Courtney Huang, and Xinqing Lin
+APCS pd6
+HW86 -- What a Racket
+2022-03-31
+time spent: 0.9 hr
+*/
+
+/******************************************************
  * ALGORITHM for EVALUATING A SCHEME EXPRESSION:
- *   1. Steal underpants.
- *   2. ...
- *   5. Profit!
+ *   1. Convert the String expr into a String[] of all the operators, parens, and operands
+ *   2. Parse through the String[] and put every character into a stack. Note the current operation
+ *   3. When you reach a closing paren, stop and evaluate what's currently in the stack.
+ *      Do this until you reach an opening paren in the stack.
+ *      Put the resulting value into the stack.
+ *   4. Repeat steps 2-3 until the entire expr is evaluated. There should only be one value in stack left, which will be returned.
  *
- * STACK OF CHOICE: stack by ALStack.java
- * b/c our team finds ArrayList easier to work with and both stacks provide
+ * STACK OF CHOICE: stack by ALStack.java b/c . . .
+ * our team finds ArrayList easier to work with, but both stacks provide
  * the basic functionality necessary.
- **/
+ ******************************************************/
+
 
 public class Scheme
 {
@@ -25,23 +34,23 @@ public class Scheme
    **/
   public static String evaluate( String expr )
   {
-    ALStack<String> stack = new ALStack<String>();
+    ALStack<String> stack = new ALStack<String>();         //initialize stack
     String[] oops = expr.split("\\s");
     int operation = 0;
-    for ( String element : oops ) {
+    for ( String element : oops ) {                        //parse thru elements
       if ( element.equals("+") ) {
         operation = 1;
       } else if ( element.equals("-") ) {
         operation = 2;
       } else if ( element.equals("*") ) {
         operation = 3;
-      } else if ( element.equals(")") ) {
-        stack.push(unload(operation, stack));
+      } else if ( element.equals(")") ) {                  //if expression valid,
+        stack.push(unload(operation, stack));              //operation will be an int 1-3
       } else {
-        stack.push(element);
+        stack.push(element);                               //push ints into stack
       }
     }
-    String ret = stack.pop();
+    String ret = stack.pop();                              //what's left in stack at the end is the answer
     return ret;
   }//end evaluate()
 
@@ -54,20 +63,19 @@ public class Scheme
    **/
   public static String unload( int op, Stack<String> numbers )
   {
-    Integer evaluated = Integer.parseInt( numbers.pop() );
-    String ret = "";
-      while (!numbers.peekTop().equals("(")) {
+    Integer evaluated = Integer.parseInt( numbers.pop() );  //evaluated will be our return val later
+      while (!numbers.peekTop().equals("(")) {              //moving down stack until reach open paren
         if ( op == 1 ) {
-          evaluated += Integer.parseInt( numbers.pop() );
-        }
-        else if ( op == 2 ) {
+          evaluated += Integer.parseInt( numbers.pop() );   //for each operation possibility:
+        }                                                   //perform the operation between the existing result (evaluated)
+        else if ( op == 2 ) {                               //and the topmost element in the stack
           evaluated -= Integer.parseInt( numbers.pop() );
         }
         else {
           evaluated *= Integer.parseInt( numbers.pop() );
         }
       }
-      return ret + evaluated;
+      return "" + evaluated;
   }//end unload()
 
 
