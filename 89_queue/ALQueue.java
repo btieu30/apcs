@@ -23,7 +23,7 @@ public class ALQueue<QUASAR> implements Queue<QUASAR> {
   }
 
   public static void main(String[] args) {
-      LLQueue test = new LLQueue();
+      ALQueue test = new ALQueue();
       test.enqueue( "first" );
       test.enqueue( "second" );
       test.enqueue( "third" );
