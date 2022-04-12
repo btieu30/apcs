@@ -22,6 +22,15 @@ public class ALQueue<QUASAR> implements Queue<QUASAR> {
     return cat.get(0);
   }
 
+  public String toString() {
+    String ret = "[";
+    for (int i = 0; i < cat.size(); i++) {
+      ret += cat.get(i) + ",";
+    }
+    ret += "]";
+    return ret;
+  }
+
   public static void main(String[] args) {
       ALQueue test = new ALQueue();
       test.enqueue( "first" );
@@ -30,6 +39,8 @@ public class ALQueue<QUASAR> implements Queue<QUASAR> {
       test.enqueue( "fourth" );
       test.enqueue( "fifth" );
       test.enqueue( "sixth" );
+
+      System.out.println(test.toString());
 
       System.out.println("\nDequeuing ... ");
       System.out.println(test.dequeue());

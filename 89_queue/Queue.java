@@ -1,3 +1,16 @@
+/*
+Duolingo -- Brianna Tieu, Courtney Huang, and Xinqing Lin
+APCS pd6
+HW89 -- Queue Two Ways
+2022-04-11
+time spent: 0.4 hr
+DISCO
+- We used Java's built in classes.
+QCC
+- Is LLQueue singly linked or doubly linked because oracle says LinkedList is doubly-linked?
+*/
+
+
 /***
  * interface Queue
  * Includes only methods listed in AP subset of Java
