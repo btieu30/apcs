@@ -25,12 +25,6 @@ public interface Deque<QUASAR> {
   //returns first element from collection, returns null if deque is empty.
   public QUASAR peekFirst();
 
-  //adds element to back of deque unless capacity restrictions are violated.
-  public boolean offerLast();
-
-  //adds element to front of deque unless capacity restrictions are violated.
-  public boolean offerFirst();
-
   //returns last element from collection.
   public QUASAR getLast();
 
