@@ -1,8 +1,8 @@
-//Fire -- Brianna Tieu, Courtney Huang, Fang Chen
-//APCS pd06
-//L09 -- Some Folks Call It A Charades
-//2022-04-26
-//time spent:
+// FIRE: Fang Chen, Courtney Huang, Brianna Tieu
+// apcs pd06
+// L09 -- Celeb
+// 2022-04-27
+// time spent: __ hrs
 
 /**
  * Celebrity base class for the Celebrity game.
