@@ -2,8 +2,8 @@
 ## Roster: Fang Chen, Courtney Huang, Brianna Tieu
 
 ### TO-DO
-- Finish skimming / reading the lab
-- Go back and write the Celebrity class
+- ~~Finish skimming / reading the lab~~
+- ~~Go back and write the Celebrity class~~
   - Answer guiding qs
 - Write CelebrityGame class
 - Write Celebrity subclass
