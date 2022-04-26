@@ -1,7 +1,7 @@
-TNPG: FIRE
-Roster: Fang Chen, Courtney Huang, Brianna Tieu
+# TNPG: FIRE
+## Roster: Fang Chen, Courtney Huang, Brianna Tieu
 
-TO-DO
+### TO-DO
 - Finish skimming / reading the lab
 - Go back and write the Celebrity class
   - Answer guiding qs
