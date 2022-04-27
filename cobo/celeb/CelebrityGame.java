@@ -30,7 +30,6 @@ public class CelebrityGame
 	{
 		gameWindow = new CelebrityFrame(this);
 		gameCelebrity = null;
-		celebGameList = new ArrayList<Celebrity>();
 	}
 
 	/**
@@ -38,8 +37,8 @@ public class CelebrityGame
 	 */
 	public void prepareGame()
 	{
-		this();
-		gameWindow.replaceScrren("START");
+		celebGameList = new ArrayList<Celebrity>();
+		gameWindow.replaceScreen("START");
 	}
 
 	/**
@@ -75,7 +74,7 @@ public class CelebrityGame
 	{
 		if (celebGameList != null && celebGameList.size() > 0) {
 			this.gameCelebrity = celebGameList.get(0);
-			gameWindow.replaceScrren("GAME");
+			gameWindow.replaceScreen("GAME");
 		}
 	}
 
@@ -146,8 +145,9 @@ public class CelebrityGame
 				validClue = false;
 			}
 		}
-			return validClue;
 	}
+	return validClue;
+}
 
 	/**
 	 * Accessor method for the current size of the list of celebrities
