@@ -5,8 +5,8 @@
 - ~~Finish skimming / reading the lab~~
 - ~~Go back and write the Celebrity class~~
   - Answer guiding qs
-- Write CelebrityGame class
-- Write Celebrity subclass
+- ~~Write CelebrityGame class~~
+- ~~Write Celebrity subclass~~
 - Go back and answer the Check for Understanding questions and other accessory questions
 
 Summary of Experience:

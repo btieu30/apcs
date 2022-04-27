@@ -76,5 +76,4 @@ public class Celebrity
 	{
 		return "The celebrity is " + _answer + " and your clue is " + _clue;
 	}
-
 }
