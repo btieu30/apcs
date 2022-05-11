@@ -152,12 +152,12 @@ public class BST
   /*****************************************************
    * int height()
    * returns height of this tree (length of longest leaf-to-root path)
-   * eg: a 1-node tree has height 1
+   * eg: a 1-node tree has height 0
    *****************************************************/
   public int height()
   {
-    int left = 1;
-    int right = 1;
+    int left = 0;
+    int right = 0;
     if (_root.getLeft() == null && _root.getLeft() == null) {
       return 0;
     }
