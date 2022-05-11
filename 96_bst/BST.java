@@ -1,8 +1,8 @@
 // FIRE: Fang Chen, Courtney Huang, Brianna Tieu
 // APCS pd06
-// HW 95 -- Algorithm as Data Structure
+// HW 96 -- BSTs is the Perfect Place for Shade
 // 2022-05-09
-// time spent: 0.5 hrs
+// time spent: 1 hr
 
 /**
  * class BST
@@ -176,13 +176,51 @@ public class BST
   }
 
 
-  // /*****************************************************
-  //  * int numLeaves()
-  //  * returns number of leaves in tree
-  //  *****************************************************/
+  /*****************************************************
+   * int numLeaves()
+   * returns number of leaves in tree
+   *****************************************************/
+  public int numLeaves()
+  {
+    TreeNode left = _root.getLeft();
+    TreeNode right = _root.getRight();
+    int counter = 1;
+    while (left != null){
+      if (right != null){
+        counter ++;
+      }
+      left = left.getLeft();
+    }
+    while (right != null){
+      if (left != null){
+        counter ++;
+      }
+      right = right.getRight();
+    }
+    return counter;
+  }
+
+  // tried this didnt work for some cases...
   // public int numLeaves()
   // {
-  //
+  //  TreeNode left = _root.getLeft();
+  //  TreeNode right = _root.getRight();
+  //  int counter = 1;
+  //  while (left != null){
+  //    if ((left.getLeft() == null) && (left.getRight() == null)){
+  //      System.out.println("o");
+  //      counter ++;
+  //    }
+  //    left = left.getLeft();
+  //  }
+  //  while (right != null){
+  //    if ((right.getLeft() == null) && (right.getRight() == null)){
+  //      System.out.println("p");
+  //      counter ++;
+  //    }
+  //    right = right.getRight();
+  //  }
+  //  return counter;
   // }
 
 
@@ -213,6 +251,10 @@ public class BST
       arbol.postOrderTrav();
 
       System.out.println( "\n-----------------------------");
+      System.out.println( "finding the leaves" );
+      System.out.println(arbol.numLeaves());
+
+      System.out.println( "\n-----------------------------");
       System.out.println( "search() testing ...");
       System.out.println( arbol.search(5).getValue() );
       System.out.println( arbol.search(0) );
@@ -222,6 +264,11 @@ public class BST
       System.out.println( arbol.height());
       arbol.insert(0);
       System.out.println( arbol.height());
+
+      System.out.println( "\n-----------------------------");
+      System.out.println( "finding the leaves" );
+      System.out.println(arbol.numLeaves());
+
     /*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }

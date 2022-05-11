@@ -1,15 +1,15 @@
 // FIRE: Fang Chen, Courtney Huang, Brianna Tieu
 // APCS pd06
-// HW 95 -- Algorithm as Data Structure
+// HW 96 -- BSTs is the Perfect Place for Shade
 // 2022-05-09
-// time spent: 0.5 hrs
+// time spent: 1 hr
 
 DISCO:
 - For the height() method, we have to account for trees that have height
   differences within the left and right subtrees.
 
 QCC:
-- 
+-
 
 With L = level, d = depth, h = height...
 1. a perfect binary tree has 2^(h + 1) - 1 nodes
