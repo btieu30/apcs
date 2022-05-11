@@ -156,8 +156,8 @@ public class BST
    *****************************************************/
   public int height()
   {
-    int left = 0;
-    int right = 0;
+    int left = 1;
+    int right = 1;
     if (_root.getLeft() == null && _root.getLeft() == null) {
       return 0;
     }
