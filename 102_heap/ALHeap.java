@@ -98,12 +98,27 @@ public class ALHeap
    * Removes and returns least element in heap.
    * Postcondition: Tree maintains heap property.
    * ALGO:
-   * <your clear && concise procedure here>
+   * 1) Overwrite root with lowest leaf
+   * 2) Sift leaf down the tree
    */
-  // public Integer removeMin()
-  // {
-  //
-  // }//O(?)
+   public Integer removeMin()
+   {
+     if (_heap.size() == 0){
+       return null;
+     }
+     if (_heap.size() == 1){
+       return _heap.remove(0);
+     }
+     Integer pop = _heap.get(0);
+     _heap.set(0, _heap.size()-1);
+     _heap.remove(_heap.size()-1);
+     int moo = 0;
+     while (minChildPos(moo) != -1){
+       swap(moo, minChildPos(moo));
+       moo = minChildPos(moo);
+     }
+     return pop;
+   }//O(?)
 
 
   /**
@@ -114,16 +129,17 @@ public class ALHeap
    */
   private int minChildPos( int pos )
   {
-    if ( (2 * pos + 1)  < _heap.size()) { //only left child
-      return 2 * pos + 1;
-    } else if ( (2 * pos + 2) < _heap.size()) { //only right child
-      return 2 * pos + 2;
-    } else if ( 2 * pos + 1 < _heap.size() && 2 * pos + 2 < _heap.size() ) {
+    if ( 2 * pos + 1 < _heap.size() && 2 * pos + 2 < _heap.size() ) {
       if ( (_heap.get( 2 * pos + 1 )) < ( _heap.get( 2 * pos + 2 )) ) {
         return 2 * pos + 1; //if left child is less, return left
       } else {
         return 2 * pos + 2;//else, return right child
       }
+    }
+    else if ( (2 * pos + 1)  < _heap.size()) { //only left child
+      return 2 * pos + 1;
+    } else if ( (2 * pos + 2) < _heap.size()) { //only right child
+      return 2 * pos + 2;
     } else {
       return -1; //no other conditions met, return -1
     }
@@ -174,29 +190,29 @@ public class ALHeap
       pile.add(9);
       System.out.println(pile);
 
+      System.out.println("removing " + pile.removeMin() + "...");
+      System.out.println(pile);
+      System.out.println("removing " + pile.removeMin() + "...");
+      System.out.println(pile);
+      System.out.println("removing " + pile.removeMin() + "...");
+      System.out.println(pile);
+      System.out.println("removing " + pile.removeMin() + "...");
+      System.out.println(pile);
+      System.out.println("removing " + pile.removeMin() + "...");
+      System.out.println(pile);
+      System.out.println("removing " + pile.removeMin() + "...");
+      System.out.println(pile);
+      System.out.println("removing " + pile.removeMin() + "...");
+      System.out.println(pile);
+      System.out.println("removing " + pile.removeMin() + "...");
+      System.out.println(pile);
+      System.out.println("removing " + pile.removeMin() + "...");
+      System.out.println(pile);
+      System.out.println("removing " + pile.removeMin() + "...");
+      System.out.println(pile);
+      System.out.println("removing " + pile.removeMin() + "...");
+      System.out.println(pile);
       /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      System.out.println("removing " + pile.removeMin() + "...");
-      System.out.println(pile);
-      System.out.println("removing " + pile.removeMin() + "...");
-      System.out.println(pile);
-      System.out.println("removing " + pile.removeMin() + "...");
-      System.out.println(pile);
-      System.out.println("removing " + pile.removeMin() + "...");
-      System.out.println(pile);
-      System.out.println("removing " + pile.removeMin() + "...");
-      System.out.println(pile);
-      System.out.println("removing " + pile.removeMin() + "...");
-      System.out.println(pile);
-      System.out.println("removing " + pile.removeMin() + "...");
-      System.out.println(pile);
-      System.out.println("removing " + pile.removeMin() + "...");
-      System.out.println(pile);
-      System.out.println("removing " + pile.removeMin() + "...");
-      System.out.println(pile);
-      System.out.println("removing " + pile.removeMin() + "...");
-      System.out.println(pile);
-      System.out.println("removing " + pile.removeMin() + "...");
-      System.out.println(pile);
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 
