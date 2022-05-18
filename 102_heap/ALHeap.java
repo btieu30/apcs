@@ -1,6 +1,6 @@
 // FIRE -- Brianna Tieu, Courtney Huang, Fang Chen
 // APCS pd06
-// HW102
+// HW102 -- Heap On Heapin' On
 // 2022-05-17
 // time spent:
 
@@ -8,6 +8,15 @@
  * class ALHeap
  * SKELETON
  * Implements a min heap using an ArrayList as underlying container
+ */
+
+ /*
+ DISCO:
+- Given x is an index of a given node,
+  - the parent is located at (x - 1) / 2
+  - the left child is located at 2x + 1
+  - the right child is located at 2x + 2
+ QCC:
  */
 
 import java.util.ArrayList;
@@ -36,6 +45,12 @@ public class ALHeap
    */
   public String toString()
   {
+    String ret = "[";
+    for (int i : _heap) {
+      ret += i + " ";
+    }
+    ret = ret.substring(0, ret.length() - 1) + "]";
+    return ret;
   }//O(?)
 
 
@@ -45,7 +60,8 @@ public class ALHeap
    */
   public boolean isEmpty()
   {
-  }//O(?)
+    return _heap.size() == 0;
+  }//O(1)
 
 
   /**
@@ -55,7 +71,8 @@ public class ALHeap
    */
   public Integer peekMin()
   {
-  }//O(?)
+    return _heap.get(0);
+  }//O(1)
 
 
   /**
@@ -63,12 +80,18 @@ public class ALHeap
    * Inserts an element in the heap
    * Postcondition: Tree exhibits heap property.
    * ALGO:
-   * <your clear && concise procedure here>
+   * 1) Add addVal to the end of the ArrayList
+   * 2) While addVal is less than its parent, swap addVal and its parent in
+   *    the array. (The parent's position is given by addVal's index minus 1
+   *    divided by 2.)
    */
   public void add( Integer addVal )
   {
-  }//O(?)
-
+    _heap.add( addVal );
+    while (addVal < _heap.get( ( _heap.indexOf( addVal ) - 1) / 2) ) {
+      swap( _heap.indexOf(addVal), ( _heap.indexOf( addVal ) - 1) / 2 );
+    }
+  }//O(log n)
 
   /**
    * removeMin()  ---  means of removing an element from heap
@@ -77,9 +100,10 @@ public class ALHeap
    * ALGO:
    * <your clear && concise procedure here>
    */
-  public Integer removeMin()
-  {
-  }//O(?)
+  // public Integer removeMin()
+  // {
+  //
+  // }//O(?)
 
 
   /**
@@ -90,6 +114,19 @@ public class ALHeap
    */
   private int minChildPos( int pos )
   {
+    if ( (2 * pos + 1)  < _heap.size()) { //only left child
+      return 2 * pos + 1;
+    } else if ( (2 * pos + 2) < _heap.size()) { //only right child
+      return 2 * pos + 2;
+    } else if ( 2 * pos + 1 < _heap.size() && 2 * pos + 2 < _heap.size() ) {
+      if ( (_heap.get( 2 * pos + 1 )) < ( _heap.get( 2 * pos + 2 )) ) {
+        return 2 * pos + 1; //if left child is less, return left
+      } else {
+        return 2 * pos + 2;//else, return right child
+      }
+    } else {
+      return -1; //no other conditions met, return -1
+    }
   }//O(?)
 
 
@@ -114,7 +151,6 @@ public class ALHeap
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       ALHeap pile = new ALHeap();
 
       pile.add(2);
@@ -138,6 +174,7 @@ public class ALHeap
       pile.add(9);
       System.out.println(pile);
 
+      /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       System.out.println("removing " + pile.removeMin() + "...");
       System.out.println(pile);
       System.out.println("removing " + pile.removeMin() + "...");
