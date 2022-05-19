@@ -1,0 +1,13 @@
+FIRE: Brianna Tieu, Courtney Huang, Fang Chen
+APCS pd06
+HW103: Erica's Friends, Hugo, and The One in the Middle
+2022-05-18
+time spent:
+
+algo presented in class:
+1) if next value to be added to heap < root of maxheap --> add to maxheap
+   else, add to minheap
+2) balance both heaps (size difference < 2)
+3) find med by:
+   - if heap sizes ==: med is mean of roots
+   - if heap sizes !=: med is root of larger heap
